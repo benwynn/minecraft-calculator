@@ -1,0 +1,25 @@
+
+{
+    "iron_ingot": {
+        "level": 1,
+        "mats": { "raw_iron": 1 }
+    },
+    "copper_ingot": {
+        "level": 1,
+        "mats": { "raw_copper": 1 }
+    },
+    "log": {
+        "level": 0,
+        "mats": {}
+    },
+    "planks": {
+        "level": 1,
+        "count": 4,
+        "mats": { "log": 1 }
+    },
+    "stick": {
+        "level": 2,
+        "count": 4,
+        "mats": { "planks": 2 }
+    }
+}
