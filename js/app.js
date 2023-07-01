@@ -28,8 +28,9 @@ function callCalculate()
   let value=recipeInput.value;
   console.log(value);
   if (!value) return;
-  let output=calc.calculate(value);
-  outputBlock.innerHTML = JSON.stringify(output);
+  let output=calc.calculate(value,1);
+ // outputBlock.innerHTML = JSON.stringify(output);
+ outputBlock.appendChild(output)
 };
 
 console.log("Starting Recipes:");

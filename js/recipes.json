@@ -2,24 +2,35 @@
 {
     "iron_ingot": {
         "level": 1,
-        "mats": { "raw_iron": 1 }
+        "quantity": 1,
+        "mats": [{ 
+            "name": "raw_iron",
+            "quanity": 1 }]
     },
     "copper_ingot": {
         "level": 1,
-        "mats": { "raw_copper": 1 }
+        "quantity": 1,
+        "mats": [{ 
+            "name": "raw_copper",
+            "quanity": 1 }]
     },
     "log": {
         "level": 0,
-        "mats": {}
+        "quantity": 1,
+        "mats": []
     },
     "planks": {
         "level": 1,
-        "count": 4,
-        "mats": { "log": 1 }
+        "quantity": 4,
+        "mats": [{
+            "name": "log",
+            "quantity": 1 }]
     },
     "stick": {
         "level": 2,
-        "count": 4,
-        "mats": { "planks": 2 }
+        "quantity": 4,
+        "mats": [{ 
+            "name": "planks",
+            "quanity": 2 }]
     }
 }
