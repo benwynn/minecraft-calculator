@@ -15,7 +15,7 @@ cookieNoticeClose.addEventListener("click", function() {
 });
 
 var recipeDB = new RecipeDB(recipes);
-var calc = new Calculator(recipes);
+var calc = new Calculator(recipeDB);
 
 goButton.addEventListener("click", callCalculate);
 

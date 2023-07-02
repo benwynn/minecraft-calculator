@@ -1,8 +1,8 @@
 
 
 class Calculator {
-    constructor(recipes) {
-        this.recipes = recipes;
+    constructor(recipeDB) {
+        this.recipeDB = recipeDB;
     }
 
     calculate(target,quantity) {
@@ -24,35 +24,18 @@ class Calculator {
     }
 
     getResult(target, quantity) {
-        if (!this.recipes.hasOwnProperty(target)) {
+        // clone the subset so we don't alter the recipes book
+        let recipe = this.recipeDB.getRecipe(target);
+
+        if (!recipe) {
             return null;
         }
 
-        // clone the subset so we don't alter the recipes book
-        let recipe = Object.assign({}, this.recipes[target]);
+        let result = {}
 
-        let output = {};
-
-        let result = {
-            // name:"log",
-            // quantity: 2,
-            // mats: [ {
-            //         name: log,
-            //         quantity: 2},
-            //         {
-            //         name:stick,
-            //         quantity: 4,
-            //        },
-            //         {
-            //         name: plank
-            //         quanity: 4
-            //        }
-            //     ]
-        }
-
-        if (!recipe.mats.length) {
-            if(recipe.quanity) {
-                result.quantity = recipe.quantity;
+        if (!recipe.getMats().length) {
+            if(recipe.getQuantity()) {
+                result.quantity = recipe.getQuantity();
             } else {
                 result.quantity = 1;
             }
@@ -64,8 +47,8 @@ class Calculator {
         result.mats = []
 
         while (result.quantity < quantity) {
-            result.quantity += recipe.quantity;
-            recipe.mats.forEach(obj =>{
+            result.quantity += recipe.getQuantity();
+            recipe.getMats().forEach(obj =>{
                 let subresult = this.getResult(obj.name,obj.quantity);
                 console.log(subresult);
                 if(!subresult.mats) {
@@ -77,11 +60,6 @@ class Calculator {
             })
         }
         result.name = target;
-       // result.quantity = recipe.quantity
-
-        //let mats = Object.entries(recipe.mats);
-        console.log("Dumping Mats:");
-        //mats.forEach(mat this.calculate(mat));
 
         return result;
     }
