@@ -12,6 +12,8 @@ class Calculator {
         let result = this.getResult(target,quantity);
         var output = document.createElement("div");
         var title = document.createElement("div");
+        var remainderTitle = document.createElement("div");
+        remainderTitle.className = "output-title";
         title.className = "output-title"
         if(result.quantity > 1) result.name +="s";
         title.innerHTML = `${result.quantity} ${result.name}`;
@@ -21,15 +23,26 @@ class Calculator {
         //     output.appendChild(variableName);
         // })
         let items = Object.keys(this.accumulator);
+        let remainders = document.createElement("div");
+        
+        remainderTitle.innerHTML = "Remainders"
+        remainders.appendChild(remainderTitle)
         items.forEach( itemName => {
             let text = document.createElement("div");
+            let remainderText = document.createElement("div");
+
             let name = itemName;
         if(this.accumulator[itemName].quantity > 1) {
             name += "s";
         }
-            text.innerHTML =`${name} ${this.accumulator[itemName].quantity}`
+            text.innerHTML =`${this.accumulator[itemName].quantity} ${name}`;
             output.appendChild(text);
+            if( this.accumulator[itemName].remainder > 0) {
+                remainderText.innerHTML = `${this.accumulator[itemName].remainder} ${name}`;
+                remainders.appendChild(remainderText);
+            }
         });
+        output.appendChild(remainders);
         return output;
     }
 
