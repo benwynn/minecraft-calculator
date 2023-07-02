@@ -5,14 +5,14 @@
         "quantity": 1,
         "mats": [{ 
             "name": "raw_iron",
-            "quanity": 1 }]
+            "quantity": 1 }]
     },
     "copper_ingot": {
         "level": 1,
         "quantity": 1,
         "mats": [{ 
             "name": "raw_copper",
-            "quanity": 1 }]
+            "quantity": 1 }]
     },
     "log": {
         "level": 0,
@@ -31,6 +31,6 @@
         "quantity": 4,
         "mats": [{ 
             "name": "planks",
-            "quanity": 2 }]
+            "quantity": 2 }]
     }
 }

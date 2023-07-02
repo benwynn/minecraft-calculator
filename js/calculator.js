@@ -17,7 +17,7 @@ class Calculator {
             let block = document.createElement("div");
             block.className = "output-row"
             if(obj.quantity > 1) obj.name+= "s";
-            block.innerHTML = `${obj.quanity} ${obj.name}`;
+            block.innerHTML = `${obj.quantity} ${obj.name}`;
             output.appendChild(block);
         })
         return output;
@@ -30,8 +30,6 @@ class Calculator {
 
         // clone the subset so we don't alter the recipes book
         let recipe = Object.assign({}, this.recipes[target]);
-
-        if (recipe.level == 0) return target;
 
         let output = {};
 
@@ -52,14 +50,30 @@ class Calculator {
             //     ]
         }
 
+        if (!recipe.mats.length) {
+            if(recipe.quanity) {
+                result.quantity = recipe.quantity;
+            } else {
+                result.quantity = 1;
+            }
+            result.name = target;
+            return result;
+        }
+
         result.quantity = 0;
         result.mats = []
 
         while (result.quantity < quantity) {
-            result.quantity += recipe.quantity
+            result.quantity += recipe.quantity;
             recipe.mats.forEach(obj =>{
-                console.log("appeneding");
-                result.mats.push(obj)
+                let subresult = this.getResult(obj.name,obj.quantity);
+                console.log(subresult);
+                if(!subresult.mats) {
+                    result.mats.push(subresult);
+                } else {
+                subresult.mats.forEach(subobj =>{
+                    result.mats.push(subobj);
+                })}
             })
         }
         result.name = target;
