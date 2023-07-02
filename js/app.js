@@ -1,5 +1,6 @@
 
 import recipes from "./recipes.json" assert {type: "json"}
+import RecipeDB from "./recipeDB.js"
 import Calculator from "./calculator.js"
 
 var cookieNotice      = document.querySelector(".cookie-notice");
@@ -13,6 +14,7 @@ cookieNoticeClose.addEventListener("click", function() {
   cookieNotice.parentNode.removeChild(cookieNotice);
 });
 
+var recipeDB = new RecipeDB(recipes);
 var calc = new Calculator(recipes);
 
 goButton.addEventListener("click", callCalculate);
