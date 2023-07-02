@@ -14,13 +14,24 @@ class Calculator {
         title.innerHTML = `${result.quantity} ${result.name}`;
         output.appendChild(title);
         result.mats.forEach(obj => {
-            let block = document.createElement("div");
-            block.className = "output-row"
-            if(obj.quantity > 1) obj.name+= "s";
-            block.innerHTML = `${obj.quantity} ${obj.name}`;
-            output.appendChild(block);
+            let variableName = this.outputMats(obj);
+            output.appendChild(variableName);
         })
         return output;
+    }
+
+    outputMats (mat){
+        let block = document.createElement("div");
+        block.className = "output-row";
+        if(mat.quantity > 1) mat.name+= "s";
+        let text = document.createElement("div");
+        text.innerHTML = `${mat.quantity} ${mat.name}`;
+        block.appendChild(text);
+        if(mat.mats) mat.mats.forEach(obj => {
+            let result = this.outputMats(obj);
+            block.appendChild(result);
+        });
+        return block;
     }
 
     getResult(target, quantity) {
@@ -51,12 +62,13 @@ class Calculator {
             recipe.getMats().forEach(obj =>{
                 let subresult = this.getResult(obj.name,obj.quantity);
                 console.log(subresult);
-                if(!subresult.mats) {
-                    result.mats.push(subresult);
-                } else {
-                subresult.mats.forEach(subobj =>{
-                    result.mats.push(subobj);
-                })}
+                // if(!subresult.mats) {
+                //     result.mats.push(subresult);
+                // } else {
+                // subresult.mats.forEach(subobj =>{
+                //     result.mats.push(subobj);
+                // })}
+                if(subresult) result.mats.push(subresult);
             })
         }
         result.name = target;

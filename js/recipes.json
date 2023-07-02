@@ -1,36 +1,437 @@
 
 {
-    "iron_ingot": {
+    "Iron Ingot": {
         "level": 1,
         "quantity": 1,
-        "mats": [{ 
-            "name": "raw_iron",
-            "quantity": 1 }]
+        "mats": []
     },
-    "copper_ingot": {
+    "Copper Ingot": {
         "level": 1,
         "quantity": 1,
-        "mats": [{ 
-            "name": "raw_copper",
-            "quantity": 1 }]
+        "mats": []
     },
-    "log": {
+    "Log": {
         "level": 0,
         "quantity": 1,
         "mats": []
     },
-    "planks": {
+    "Antimony Tiny Dust": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Aluminum Tiny Dust": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Tin Ingot": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Aluminum Ingot": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Gold Ingot": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Silicon Ingot": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Steel Ingot": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Glass":  {
+        "quantity": 1,
+        "mats": []
+    },
+    "Rubber Sheet" : {
+        "quantity": 1,
+        "mats": []
+    },
+    "Planks": {
         "level": 1,
         "quantity": 4,
         "mats": [{
             "name": "log",
             "quantity": 1 }]
     },
-    "stick": {
+    "Stick": {
         "level": 2,
         "quantity": 4,
         "mats": [{ 
             "name": "planks",
             "quantity": 2 }]
+    },
+    "Iron Shovel":{
+        "quantity": 1,
+        "mats": [{
+            "name": "stick",
+            "quantity": 2},
+            {"name": "iron ingot",
+            "quantity": 1}]
+    },
+    "Silicon Plate": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Silicon Ingot",
+            "quantity": 1}]
+    },
+    "Copper Wire": {
+        "quantity": 2,
+        "mats": [{
+            "name": "Copper Plate",
+            "quantity": 1}]
+    },
+    "Copper Plate": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Copper Ingot",
+            "quantity": 1}]
+    },
+    "Gold Plate": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Gold Ingot",
+            "quantity": 1}]
+    },
+    "Curved Aluminum Plate": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Aluminum Plate",
+            "quantity": 1}]
+    },
+    "Aluminum Plate": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Aluminum Ingot",
+            "quantity": 1}]
+    },
+    "Aluminum Rod": {
+        "quantity": 2,
+        "mats": [{
+            "name": "Aluminum Ingot",
+            "quantity": 1}]
+    },
+    "Aluminum Ring": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Aluminum Rod",
+            "quantity": 1}]
+    },
+    "Curved Tin Plate":{
+        "quantity": 1,
+        "mats": [{
+            "name": "Tin Plate",
+            "quantity": 1}]
+    },
+    "Tin Plate":{
+        "quantity": 1,
+        "mats": [{
+            "name": "Tin Ingot",
+            "quantity": 1}]
+    },
+    "Tin Rod": {
+        "quantity": 2,
+        "mats": [{
+            "name": "Tin Ingot",
+            "quantity": 1}]
+    },
+    "Tin Ring": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Tin Rod",
+            "quantity": 1}]
+    },
+    "Steel Plate":{
+        "quantity": 1,
+        "mats": [{
+            "name": "Steel Ingot",
+            "quantity": 1}]
+    },
+    "Tin Cable": {
+        "quantity": 3,
+        "mats": [{
+            "name": "Tin Wire",
+            "quantity": 3}]
+    },
+    "Tin Wire": {
+        "quantity": 2,
+        "mats": [{
+            "name": "Tin Plate",
+            "quantity": 1}]
+    },
+    "Steel Rod": {
+        "quantity": 2,
+        "mats": [{
+            "name": "Steel Ingot",
+            "quantity": 1}]
+    },
+    "Magnitized Steel Rod": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Steel Rod",
+            "quantity": 1}]
+    },
+    "Tin Fan Blade": {
+        "quantity": 4,
+        "mats": [{
+            "name": "Curved Tin Plate",
+            "quantity": 2},
+            {"name": "Tin Rod",
+            "quantity": 1}]
+    },
+    "Tin Fan": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Tin Fan Blade",
+            "quantity": 4},
+            {"name": "Tin Ring",
+            "quantity": 1}]
+    },  
+    "Resistor": {
+        "quantity": 12,
+        "mats": [{
+            "name": "Fine Copper Wire",
+            "quantity": 2},
+            {"name": "Coal Dust",
+            "quantity": 1}]
+    },  
+    "Fine Copper Wire": {
+        "quantity": 4,
+        "mats": [{
+            "name": "Copper Wire",
+            "quantity": 1}]
+    },
+    "Inductor": {
+        "quantity": 4,
+        "mats": [{
+            "name": "Copper Wire",
+            "quantity": 8},
+            {"name": "Steel Rod",
+            "quantity": 1}]
+    },  
+    "Capacitor": {
+        "quantity": 2,
+        "mats": [{
+            "name": "Gold Plate",
+            "quantity": 2},
+            {"name": "Copper Wire",
+            "quantity": 2},
+            {"name": "Rubber Sheet",
+            "quantity": 1}]
+    },
+    "Analog Circuit": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Capacitor",
+            "quantity": 2},
+            {"name": "Copper Wire",
+            "quantity": 3},
+            {"name": "Resistor",
+            "quantity": 2},
+            {"name": "Inductor",
+            "quantity": 1},
+            {"name": "Analog Circuit Board",
+            "quantity": 1}]
+    },
+    "Analog Circuit Board": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Copper Plate",
+            "quantity": 2},
+            {"name": "Rubber Sheet",
+            "quantity": 1}]
+    },
+    "P-doped Silicon": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Silicon Plate",
+            "quantity": 1},
+            {"name": "Antimony Tiny Dust",
+            "quantity": 1}]
+    },
+    "N-doped Silicon": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Silicon Plate",
+            "quantity": 1},
+            {"name": "Aluminum Tiny Dust",
+            "quantity": 1}]
+    },
+    "Diode": {
+        "quantity": 2,
+        "mats": [{
+            "name": "Fine Electrum Wire",
+            "quantity": 3},
+            {"name": "Steel Plate",
+            "quantity": 2},
+            {"name": "N-doped Silicon",
+            "quantity": 1},
+            {"name": "Glass",
+            "quantity": 3}]
+    },
+    "Transistor": {
+        "quantity": 4,
+        "mats": [{
+            "name": "Fine Electrum Wire",
+            "quantity": 1},
+            {"name": "Steel Plate",
+            "quantity": 3},
+            {"name": "N-doped Silicon",
+            "quantity": 1},
+            {"name": "P-doped Silicon",
+            "quantity": 2}]
+    },
+    "Aluminum Fan": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Aluminum Fan Blade",
+            "quantity": 4},
+            {"name": "Aluminum Ring",
+            "quantity": 1}]
+    }, 
+    "Aluminum Fan Blade": {
+        "quantity": 4,
+        "mats": [{
+            "name": "Curved Aluminum Plate",
+            "quantity": 2},
+            {"name": "Aluminum Rod",
+            "quantity": 1}]
+    },
+    "Electronic Circuit Board": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Aluminum Plate",
+            "quantity": 3},
+            {"name": "Electrum Cable",
+            "quantity": 4},
+            {"name": "Redstone Battery",
+            "quantity": 1},
+            {"name": "Analog Circuit Board",
+            "quantity": 1}]
+    },   
+    "Electrum Cable": {
+        "quantity": 3,
+        "mats": [{
+            "name": "Electrum Wire",
+            "quantity": 3}]
+    },
+    "Electrum Wire": {
+        "quantity": 2,
+        "mats": [{
+            "name": "Electrum Plate",
+            "quantity": 1}]
+    },
+    "Electrum Plate": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Electrum Ingot",
+            "quantity": 1}]
+    },
+    "Fine Electrum Wire": {
+        "quantity": 4,
+        "mats": [{
+            "name": "Electrum Wire",
+            "quantity": 1}]
+    },
+    "Electronic Circuit": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Analog Circuit",
+            "quantity": 4},
+            {"name": "Transistor",
+            "quantity": 2},
+            {"name": "Diode",
+            "quantity": 2},
+            {"name": "Electronic Circuit Board",
+            "quantity": 1}]
+    },
+    "Pump": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Fluid Pipe",
+            "quantity": 3},
+            {"name": "Motor",
+            "quantity": 1},
+            {"name": "Tin Fan",
+            "quantity": 3}]
+    },
+    "Motor": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Copper Wire",
+            "quantity": 4},
+            {"name": "Steel Rod",
+            "quantity": 2},
+            {"name": "Magnitized Steel Rod",
+            "quantity": 1},
+            {"name": "Tin Cable",
+            "quantity": 2}]
+    },
+    "Large Motor": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Motor",
+            "quantity": 6},
+            {"name": "Aluminum Rod",
+            "quantity": 2},
+            {"name": "Electronic Circuit",
+            "quantity": 1}]
+    },
+    "Large Pump": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Aluminum Fan",
+            "quantity": 3},
+            {"name": "Pump",
+            "quantity": 3},
+            {"name": "Large Motor",
+            "quantity": 1},
+            {"name": "Electronic Circuit",
+            "quantity": 2}]
+    },
+    "Fluid Pipe":{
+        "quantity": 16,
+        "mats": [{
+            "name": "Curved Brass Plate",
+            "quantity": 6},
+            {"name": "Steel Gear",
+            "quantity": 2},
+            {"name": "Glass Pane",
+            "quantity": 1}]
+    },
+    "Glass Pane":{
+        "quantity": 16,
+        "mats": [{
+            "name": "Glass",
+            "quantity": 6
+        }]
+    },
+    "Steel Gear":{
+        "quantity": 2,
+        "mats": [{
+            "name": "Steel Plate",
+            "quantity": 4},
+            {"name": "Steel Ring",
+            "quantity": 1}]
+    },
+    "Advanced Large Steam Boiler": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Pump",
+            "quantity": 4},
+            {"name": "Large Pump",
+            "quantity": 2},
+            {"name": "Electronic Circuit",
+            "quantity": 2},
+            {"name": "Large Steam Boiler",
+            "quantity": 1}]
+    },
+    "Large Steam Boiler":{
+        "quantity": 1,
+        "mats":[]
     }
 }
