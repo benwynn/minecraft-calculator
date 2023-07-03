@@ -36,6 +36,8 @@ class Recipe {
             if (elementRecipe) {
                 // If our element has no mats, it will return level 0, so our level is 1
                 elementLevel = elementRecipe.getLevel() + 1;
+            } else {
+                console.error("Failed to lookup recipe for: " + element.name);
             }
             if (maxLevel < elementLevel) maxLevel = elementLevel;
         });
