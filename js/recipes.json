@@ -48,6 +48,16 @@
         "quantity": 1,
         "mats": []
     },
+    "Coal": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Coal Dust": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Coal",
+            "quantity": 1 }]
+    },
     "Planks": {
         "quantity": 4,
         "mats": [{

@@ -35,7 +35,8 @@ class Calculator {
             if(this.addSuffix(name,this.accumulator[itemName].quantity)) {
                 suffix += "s";
             }
-            text.innerHTML =`${this.accumulator[itemName].quantity} ${name}${suffix} `;
+            let level = this.recipeDB.getRecipe(itemName).getLevel();
+            text.innerHTML =`${this.accumulator[itemName].quantity} ${name}${suffix} Level ${level} `;
             output.appendChild(text);
             suffix = "";
             if(this.addSuffix(name,this.accumulator[itemName].remainder)) {
@@ -74,11 +75,13 @@ addSuffix(text,quantity){
         // clone the subset so we don't alter the recipes book
         let recipe = this.recipeDB.getRecipe(target);
 
-        if (!recipe) {
-            return null;
-        }
-
         let result = {}
+        result.name = target;
+        result.quantity = quantity;
+
+        if (!recipe) {
+            return result;
+        }
 
         if (!recipe.getMats().length) {
             if(recipe.getQuantity()) {
