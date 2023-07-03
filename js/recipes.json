@@ -1,17 +1,14 @@
 
 {
     "Iron Ingot": {
-        "level": 1,
         "quantity": 1,
         "mats": []
     },
     "Copper Ingot": {
-        "level": 1,
         "quantity": 1,
         "mats": []
     },
     "Log": {
-        "level": 0,
         "quantity": 1,
         "mats": []
     },
@@ -52,17 +49,15 @@
         "mats": []
     },
     "Planks": {
-        "level": 1,
         "quantity": 4,
         "mats": [{
-            "name": "log",
+            "name": "Log",
             "quantity": 1 }]
     },
     "Stick": {
-        "level": 2,
         "quantity": 4,
         "mats": [{ 
-            "name": "planks",
+            "name": "Planks",
             "quantity": 2 }]
     },
     "Iron Shovel":{
