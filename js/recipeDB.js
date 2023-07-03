@@ -14,6 +14,10 @@ class RecipeDB {
     }
 
     getRecipe(target) {
+        if (typeof target !== 'string') {
+            console.error("RecipeDB.getRecipe(string) called without a string");
+            return null;
+        }
         if (this.#recipeMap.hasOwnProperty(target)) {
             return this.#recipeMap[target];
         }
