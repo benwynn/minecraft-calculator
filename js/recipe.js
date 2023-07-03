@@ -20,7 +20,7 @@ class Recipe {
     }
 
     getLevel() {
-       if(this.#level == 0) {
+       if(this.#level === undefined) {
             this.#level = this.calculateLevel();
         }
         return this.#level;
