@@ -31,9 +31,8 @@ function callCalculate()
   console.log(value);
   if (!value) return;
   let output=calc.calculate(value,1);
- // outputBlock.innerHTML = JSON.stringify(output);
- //if(outputBlock.children != null) outputBlock.remove();
- outputBlock.appendChild(output)
+  while (outputBlock.firstChild) outputBlock.removeChild(outputBlock.firstChild);
+  outputBlock.appendChild(output)
 };
 
 console.log("Starting Recipes:");
