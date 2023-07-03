@@ -1,12 +1,14 @@
 
 class Recipe {
 
+    #recipeDB;
     #name = "unset";
-    #level = 0;
+    #level = undefined;
     #quantity = 0;
     #mats = [];
 
-    constructor(name, quantity, mats) {
+    constructor(recipeDB, name, quantity, mats) {
+        this.#recipeDB = recipeDB;
         this.#name = name;
         if (quantity) this.#quantity = quantity;
         // clone the subset so we don't alter the recipes book
@@ -18,7 +20,7 @@ class Recipe {
     }
 
     getLevel() {
-        if(this.#level = 0) {
+        if(this.#level === undefined) {
             this.#level = this.calculateLevel();
         }
         return this.#level;
@@ -27,7 +29,7 @@ class Recipe {
     calculateLevel() {
         let maxLevel = 0;
         this.#mats.forEach(element => {
-            let elementRecipe = recipeDB.getRecipe(element);
+            let elementRecipe = this.#recipeDB.getRecipe(element);
             let elementLevel = 0;
             if (elementRecipe) {
                 elementLevel = elementRecipe.getLevel() + 1;
