@@ -29,12 +29,15 @@ class Recipe {
     calculateLevel() {
         let maxLevel = 0;
         this.#mats.forEach(element => {
-            let elementRecipe = this.#recipeDB.getRecipe(element);
+            let elementRecipe = this.#recipeDB.getRecipe(element.name);
             let elementLevel = 0;
-            if (!elementRecipe.getMats().length) { 
-                elementLevel = 1;
-            } else if (elementRecipe) {
-                elementLevel = elementRecipe.getLevel() + 1;
+
+            if (elementRecipe){
+                if(!elementRecipe.getMats().length) { 
+                    elementLevel = 1;
+                } else{
+                    elementLevel = elementRecipe.getLevel() + 1;
+                }
             }
             if (maxLevel < elementLevel) maxLevel = elementLevel;
         });
