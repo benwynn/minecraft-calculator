@@ -18,7 +18,7 @@ class Recipe {
     }
 
     getLevel() {
-       if(this.#level = 0) {
+       if(this.#level == 0) {
             this.#level = this.calculateLevel();
         }
         return this.#level;
@@ -27,8 +27,10 @@ class Recipe {
     calculateLevel() {
         let maxLevel = 0;
         this.#mats.forEach(element => {
-            if(!element.getMats().length) maxLevel = 1;
-            let elementLevel = recipeDB.getRecipe(element).getLevel() +1;
+            if(!this.getMats().length) {elementLevel = 1;
+            } else{
+                let elementLevel = recipeDB.getRecipe(element).getLevel() +1;
+            }
             if(maxLevel < elementLevel) maxLevel = elementLevel;
         })
         return maxLevel;
