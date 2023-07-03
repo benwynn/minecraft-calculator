@@ -28,19 +28,18 @@ class Recipe {
 
     calculateLevel() {
         let maxLevel = 0;
+        // if there are no mats, this loop won't run and we return 0
         this.#mats.forEach(element => {
             let elementRecipe = this.#recipeDB.getRecipe(element.name);
             let elementLevel = 0;
 
-            if (elementRecipe){
-                if(!elementRecipe.getMats().length) { 
-                    elementLevel = 1;
-                } else{
-                    elementLevel = elementRecipe.getLevel() + 1;
-                }
+            if (elementRecipe) {
+                // If our element has no mats, it will return level 0, so our level is 1
+                elementLevel = elementRecipe.getLevel() + 1;
             }
             if (maxLevel < elementLevel) maxLevel = elementLevel;
         });
+        
         return maxLevel;
     }
 
