@@ -9,9 +9,16 @@ class Calculator {
     }
 
     calculate(target,quantity) {
-        let result = this.getResult(target,quantity);
         var output = document.createElement("div");
         var title = document.createElement("div");
+
+        let result = this.getResult(target,quantity);
+        if (!result) {
+            title.innerHTML = "We could not locate this item in the database: " + target;
+            output.appendChild(title);
+            return output;
+        }
+
         var remainderTitle = document.createElement("div");
         remainderTitle.className = "output-title";
         title.className = "output-title";
