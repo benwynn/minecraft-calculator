@@ -58,7 +58,7 @@ class Calculator {
             let name = itemName;
             let suffix = "";
 
-            if(this.addSuffix(name,this.accumulator[itemName].quantity)) {
+            if (this.addSuffix(name,this.accumulator[itemName].quantity)) {
                 suffix += "s";
             }
             let level = this.recipeDB.getRecipe(itemName).getLevel();
@@ -87,7 +87,7 @@ class Calculator {
             if(this.addSuffix(name,this.accumulator[itemName].remainder)) {
                 suffix += "s";
             }
-            if( this.accumulator[itemName].remainder > 0) {
+            if (this.accumulator[itemName].remainder > 0) {
                 remainderText.innerHTML = `${this.accumulator[itemName].remainder} ${name}${suffix}`;
                 remainders.appendChild(remainderText);
             }
@@ -95,30 +95,31 @@ class Calculator {
 
         return remainders;
     }
+
     reset() {
         this.accumulator = [];
         this.remainder = [];
     }
 
-    addSuffix(text,quantity){
+    addSuffix(text,quantity) {
         if(quantity < 2) return false;
         if(text.slice(-1)=="s") return false;
         return true;
     }
 
-    // outputMats (mat){
-    //     let block = document.createElement("div");
-    //     block.className = "output-row";
-    //     if(mat.quantity > 1) mat.name+= "s";
-    //     let text = document.createElement("div");
-    //     text.innerHTML = `${mat.quantity} ${mat.name}`;
-    //     block.appendChild(text);
-    //     if(mat.mats) mat.mats.forEach(obj => {
-    //         let result = this.outputMats(obj);
-    //         block.appendChild(result);
-    //     });
-    //     return block;
-    // }
+    outputMats (mat){
+        let block = document.createElement("div");
+        block.className = "output-row";
+        if(mat.quantity > 1) mat.name+= "s";
+        let text = document.createElement("div");
+        text.innerHTML = `${mat.quantity} ${mat.name}`;
+        block.appendChild(text);
+        if(mat.mats) mat.mats.forEach(obj => {
+            let result = this.outputMats(obj);
+            block.appendChild(result);
+        });
+        return block;
+    }
 
     getResult(target, quantity) {
         // clone the subset so we don't alter the recipes book
@@ -133,7 +134,7 @@ class Calculator {
         }
 
         if (!recipe.getMats().length) {
-            if(recipe.getQuantity()) {
+            if (recipe.getQuantity()) {
                 this.accumulate(target,quantity,recipe.getQuantity());
             } else {
                 this.accumulate(target,quantity,1);
@@ -149,7 +150,7 @@ class Calculator {
             this.accumulate(target,quantity,recipe.getQuantity());
             recipe.getMats().forEach(obj =>{
                 let subresult = this.getResult(obj.name,obj.quantity);
-                if(subresult) {
+                if (subresult) {
                     result.mats.push(subresult);
                 }
                 quantity -= recipe.getQuantity();
@@ -163,15 +164,15 @@ class Calculator {
     }
 
     accumulate(item,quantity,produced) {
-        if(!this.accumulator.hasOwnProperty(item)) {
+        if (!this.accumulator.hasOwnProperty(item)) {
             this.accumulator[item] = {quantity:0,remainder:0};
         }
-        if(quantity < this.accumulator[item].remainder) {
+        if (quantity < this.accumulator[item].remainder) {
             this.accumulator[item].remainder -= quantity;
             this.accumulator[item].quantity += quantity;
             return false;
         } 
-        if(produced > quantity) {
+        if (produced > quantity) {
             this.accumulator[item].quantity += quantity;
             this.accumulator[item].remainder += (produced - quantity);
             return true;
