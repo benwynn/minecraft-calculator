@@ -7,7 +7,7 @@ var cookieNotice      = document.querySelector(".cookie-notice");
 var cookieNoticeClose = document.querySelector(".cookie-notice-dismiss-button");
 var recipeInput       = document.querySelector(".RecipeInput");
 var goButton          = document.querySelector(".GoButton");
-var outputBlock       = document.querySelector(".output")
+var outputBlock       = document.querySelector(".output");
 
 
 cookieNoticeClose.addEventListener("click", function() {
@@ -32,12 +32,18 @@ recipeInput.addEventListener("keydown", function(e) {
 
 function callCalculate()
 {
+  resetOutput();
   let value=recipeInput.value;
   console.log(value);
   if (!value) return;
   let output=calc.calculate(value,1);
-  while (outputBlock.firstChild) outputBlock.removeChild(outputBlock.firstChild);
-  outputBlock.appendChild(output)
+  outputBlock.appendChild(output);
 };
 
-
+function resetOutput()
+{
+  while (outputBlock.hasChildNodes()) {
+    console.log(outputBlock.firstChild)
+    outputBlock.removeChild(outputBlock.firstChild);
+  }
+}

@@ -12,6 +12,8 @@ class Calculator {
         var output = document.createElement("div");
         var title = document.createElement("div");
 
+        this.reset();
+
         let result = this.getResult(target,quantity);
         if (!result) {
             title.innerHTML = "We could not locate this item in the database: " + target;
@@ -19,18 +21,15 @@ class Calculator {
             return output;
         }
 
-        var remainderTitle = document.createElement("div");
-        remainderTitle.className = "output-title";
         title.className = "output-title";
         title.innerHTML = `${result.quantity} ${result.name}`;
         output.appendChild(title);
-        // result.mats.forEach(obj => {
-        //     let variableName = this.outputMats(obj);
-        //     output.appendChild(variableName);
-        // })
+
         let items = Object.keys(this.accumulator);
         let remainders = document.createElement("div");
-        
+
+        var remainderTitle = document.createElement("div");
+        remainderTitle.className = "output-title";
         remainderTitle.innerHTML = "Remainders"
         remainders.appendChild(remainderTitle)
         items.forEach( itemName => {
@@ -57,6 +56,11 @@ class Calculator {
         output.appendChild(remainders);
         return output;
     }
+
+reset() {
+    this.accumulator = [];
+    this.remainder = [];
+}
 
 addSuffix(text,quantity){
     if(quantity < 2) return false;
@@ -100,16 +104,13 @@ addSuffix(text,quantity){
             return result;
         }
 
-        result.quantity = 0;
-        
-        result.quantity += recipe.getQuantity();
-        result.mats = []
+        result.quantity =  recipe.getQuantity();
+        result.mats = [];
 
         while (quantity > 0) { 
             this.accumulate(target,quantity,recipe.getQuantity());
             recipe.getMats().forEach(obj =>{
                 let subresult = this.getResult(obj.name,obj.quantity);
-                console.log(subresult);
                 if(subresult) {
                     result.mats.push(subresult);
                 }
