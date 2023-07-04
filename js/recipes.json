@@ -52,6 +52,46 @@
         "quantity": 1,
         "mats": []
     },
+    "Brass Ingot": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Electrum Ingot": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Redstone": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Battery Alloy Ingot": {
+        "quantity": 1,
+        "mats": []
+    },
+    "Brass Plate": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Brass Ingot",
+            "quantity": 1 }]
+    },    
+    "Curved Brass Plate": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Brass Plate",
+            "quantity": 1 }]
+    },
+    "Battery Alloy Plate": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Battery Alloy Ingot",
+            "quantity": 1 }]
+    },    
+    "Curved Battery Alloy Plate": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Battery Alloy Plate",
+            "quantity": 1 }]
+    },
     "Coal Dust": {
         "quantity": 1,
         "mats": [{
@@ -172,6 +212,12 @@
         "quantity": 2,
         "mats": [{
             "name": "Steel Ingot",
+            "quantity": 1}]
+    },    
+    "Steel Ring": {
+        "quantity": 2,
+        "mats": [{
+            "name": "Steel Rod",
             "quantity": 1}]
     },
     "Magnitized Steel Rod": {
@@ -438,5 +484,17 @@
     "Large Steam Boiler":{
         "quantity": 1,
         "mats":[]
+    },
+    "Redstone Battery": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Redstone",
+            "quantity": 2},
+            {"name": "Tin Cable",
+            "quantity": 2},
+            {"name": "Battery Alloy Plate",
+            "quantity": 1},
+            {"name": "Curved Battery Alloy Plate",
+            "quantity": 5}]
     }
 }

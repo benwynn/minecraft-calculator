@@ -19,9 +19,10 @@ class Calculator {
         }
 
         let items = Object.keys(this.accumulator);
-        let sortItems = items.map(x => { return {name: x, level: this.recipeDB.getRecipe(x).getLevel() }}, this);
+        items.sort();
 
-        sortItems.sort(function(a,b) {a.level - b.level})
+        let sortItems = items.map(x => { return {name: x, level: this.recipeDB.getRecipe(x).getLevel() }}, this);
+        sortItems.sort(function(a,b) {return a.level - b.level})
         
         let ingredientOutput = this.formatIngredients(result,sortItems);
         let remainderOutput = this.formatRemainders(items);
@@ -41,7 +42,7 @@ class Calculator {
     formatIngredients (result, sortItems) {
         var output = document.createElement("div");
         var title = document.createElement("div");
-
+        var level = 0;        
 
         title.className = "output-title";
         title.innerHTML = `${result.quantity} ${result.name}`;
@@ -52,14 +53,25 @@ class Calculator {
             let text = document.createElement("div");
             let name = item.name;
             let suffix = "";
+            
+            if(item.level != level) {
+                output = this.addSeparator(output);
+                level = item.level;
+            }
 
             if (this.addSuffix(name,this.accumulator[name].quantity)) {
                 suffix += "s";
             }
-            let level = this.recipeDB.getRecipe(name).getLevel();
-            text.innerHTML =`${this.accumulator[name].quantity} ${name}${suffix} Level ${level} `;
+            text.innerHTML =`${this.accumulator[name].quantity} ${name}${suffix}`;
             output.appendChild(text);
         })
+        output = this.addSeparator(output);
+        return output;
+    }
+
+    addSeparator(output){
+        let separator = document.createElement("p");
+        output.appendChild(separator);
         return output;
     }
 
