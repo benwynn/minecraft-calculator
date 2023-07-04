@@ -2,7 +2,6 @@
 
 class Calculator {
     accumulator = {};
-    remainder = {};
 
     constructor(recipeDB) {
         this.recipeDB = recipeDB;
@@ -16,25 +15,46 @@ class Calculator {
 
         let result = this.getResult(target,quantity);
         if (!result) {
-            title.innerHTML = "We could not locate this item in the database: " + target;
-            output.appendChild(title);
-            return output;
+            return this.noResult();
         }
+
+        this.accumulator.sort(function(a,b) {
+            let levela = recipeDB.getRecipe(a).getLevel();
+            let levelb = recipeDB.getRecipe(b).getLevel();
+            return levela - levelb})
+
+        // title.className = "output-title";
+        // title.innerHTML = `${result.quantity} ${result.name}`;
+        // output.appendChild(title);
+        
+        let ingredientOutput = this.formatIngredients(result);
+        let remainderOutput = this.formatRemainders();
+
+        output.appendChild(ingredientOutput);
+        output.appendChild(remainderOutput);
+
+        return output;
+    }
+
+    noResult () {
+        let title = document.createElement("div");
+        title.innerHTML = "We could not locate this item in the database: " + target;
+        return title;
+    }
+
+    formatIngredients (result) {
+        var output = document.createElement("div");
+        var title = document.createElement("div");
+
+        let items = Object.keys(this.accumulator);
 
         title.className = "output-title";
         title.innerHTML = `${result.quantity} ${result.name}`;
-        output.appendChild(title);
 
-        let items = Object.keys(this.accumulator);
-        let remainders = document.createElement("div");
+        output.appendChild(title)
 
-        var remainderTitle = document.createElement("div");
-        remainderTitle.className = "output-title";
-        remainderTitle.innerHTML = "Remainders"
-        remainders.appendChild(remainderTitle)
         items.forEach( itemName => {
             let text = document.createElement("div");
-            let remainderText = document.createElement("div");
             let name = itemName;
             let suffix = "";
 
@@ -44,7 +64,26 @@ class Calculator {
             let level = this.recipeDB.getRecipe(itemName).getLevel();
             text.innerHTML =`${this.accumulator[itemName].quantity} ${name}${suffix} Level ${level} `;
             output.appendChild(text);
-            suffix = "";
+        })
+        return output;
+    }
+
+    formatRemainders () {
+        var title = document.createElement("div");
+        let remainders = document.createElement("div");
+
+        let items = Object.keys(this.accumulator);
+
+        title.className = "output-title";
+        title.innerHTML = "Remainders"
+        remainders.appendChild(title);
+
+        items.forEach( itemName => {
+            let text = document.createElement("div");
+            let remainderText = document.createElement("div");
+            let name = itemName;
+            let suffix = "";
+
             if(this.addSuffix(name,this.accumulator[itemName].remainder)) {
                 suffix += "s";
             }
@@ -53,34 +92,33 @@ class Calculator {
                 remainders.appendChild(remainderText);
             }
         });
-        output.appendChild(remainders);
-        return output;
+
+        return remainders;
+    }
+    reset() {
+        this.accumulator = [];
+        this.remainder = [];
     }
 
-reset() {
-    this.accumulator = [];
-    this.remainder = [];
-}
-
-addSuffix(text,quantity){
-    if(quantity < 2) return false;
-    if(text.slice(-1)=="s") return false;
-    return true;
-}
-
-    outputMats (mat){
-        let block = document.createElement("div");
-        block.className = "output-row";
-        if(mat.quantity > 1) mat.name+= "s";
-        let text = document.createElement("div");
-        text.innerHTML = `${mat.quantity} ${mat.name}`;
-        block.appendChild(text);
-        if(mat.mats) mat.mats.forEach(obj => {
-            let result = this.outputMats(obj);
-            block.appendChild(result);
-        });
-        return block;
+    addSuffix(text,quantity){
+        if(quantity < 2) return false;
+        if(text.slice(-1)=="s") return false;
+        return true;
     }
+
+    // outputMats (mat){
+    //     let block = document.createElement("div");
+    //     block.className = "output-row";
+    //     if(mat.quantity > 1) mat.name+= "s";
+    //     let text = document.createElement("div");
+    //     text.innerHTML = `${mat.quantity} ${mat.name}`;
+    //     block.appendChild(text);
+    //     if(mat.mats) mat.mats.forEach(obj => {
+    //         let result = this.outputMats(obj);
+    //         block.appendChild(result);
+    //     });
+    //     return block;
+    // }
 
     getResult(target, quantity) {
         // clone the subset so we don't alter the recipes book
