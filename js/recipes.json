@@ -52,7 +52,7 @@
         "quantity": 1,
         "mats": []
     },
-    "Brass Ingot": {
+    "Bronze Ingot": {
         "quantity": 1,
         "mats": []
     },
@@ -68,16 +68,16 @@
         "quantity": 1,
         "mats": []
     },
-    "Brass Plate": {
+    "Bronze Plate": {
         "quantity": 1,
         "mats": [{
-            "name": "Brass Ingot",
+            "name": "Bronze Ingot",
             "quantity": 1 }]
     },    
-    "Curved Brass Plate": {
+    "Curved Bronze Plate": {
         "quantity": 1,
         "mats": [{
-            "name": "Brass Plate",
+            "name": "Bronze Plate",
             "quantity": 1 }]
     },
     "Battery Alloy Plate": {
@@ -447,7 +447,7 @@
     "Fluid Pipe":{
         "quantity": 16,
         "mats": [{
-            "name": "Curved Brass Plate",
+            "name": "Curved Bronze Plate",
             "quantity": 6},
             {"name": "Steel Gear",
             "quantity": 2},
