@@ -18,17 +18,13 @@ class Calculator {
             return this.noResult();
         }
 
-        this.accumulator.sort(function(a,b) {
-            let levela = recipeDB.getRecipe(a).getLevel();
-            let levelb = recipeDB.getRecipe(b).getLevel();
-            return levela - levelb})
+        let items = Object.keys(this.accumulator);
+        let sortItems = items.map(x => { return {name: x, level: this.recipeDB.getRecipe(x).getLevel() }}, this);
 
-        // title.className = "output-title";
-        // title.innerHTML = `${result.quantity} ${result.name}`;
-        // output.appendChild(title);
+        sortItems.sort(function(a,b) {a.level - b.level})
         
-        let ingredientOutput = this.formatIngredients(result);
-        let remainderOutput = this.formatRemainders();
+        let ingredientOutput = this.formatIngredients(result,sortItems);
+        let remainderOutput = this.formatRemainders(items);
 
         output.appendChild(ingredientOutput);
         output.appendChild(remainderOutput);
@@ -42,37 +38,36 @@ class Calculator {
         return title;
     }
 
-    formatIngredients (result) {
+    formatIngredients (result, sortItems) {
         var output = document.createElement("div");
         var title = document.createElement("div");
 
-        let items = Object.keys(this.accumulator);
 
         title.className = "output-title";
         title.innerHTML = `${result.quantity} ${result.name}`;
 
         output.appendChild(title)
 
-        items.forEach( itemName => {
+        sortItems.forEach( item => {
             let text = document.createElement("div");
-            let name = itemName;
+            let name = item.name;
             let suffix = "";
 
-            if (this.addSuffix(name,this.accumulator[itemName].quantity)) {
+            if (this.addSuffix(name,this.accumulator[name].quantity)) {
                 suffix += "s";
             }
-            let level = this.recipeDB.getRecipe(itemName).getLevel();
-            text.innerHTML =`${this.accumulator[itemName].quantity} ${name}${suffix} Level ${level} `;
+            let level = this.recipeDB.getRecipe(name).getLevel();
+            text.innerHTML =`${this.accumulator[name].quantity} ${name}${suffix} Level ${level} `;
             output.appendChild(text);
         })
         return output;
     }
 
-    formatRemainders () {
+    formatRemainders (items) {
         var title = document.createElement("div");
         let remainders = document.createElement("div");
 
-        let items = Object.keys(this.accumulator);
+  //      let items = Object.keys(this.accumulator);
 
         title.className = "output-title";
         title.innerHTML = "Remainders"
@@ -98,7 +93,6 @@ class Calculator {
 
     reset() {
         this.accumulator = [];
-        this.remainder = [];
     }
 
     addSuffix(text,quantity) {
@@ -107,19 +101,19 @@ class Calculator {
         return true;
     }
 
-    outputMats (mat){
-        let block = document.createElement("div");
-        block.className = "output-row";
-        if(mat.quantity > 1) mat.name+= "s";
-        let text = document.createElement("div");
-        text.innerHTML = `${mat.quantity} ${mat.name}`;
-        block.appendChild(text);
-        if(mat.mats) mat.mats.forEach(obj => {
-            let result = this.outputMats(obj);
-            block.appendChild(result);
-        });
-        return block;
-    }
+    // outputMats (mat){
+    //     let block = document.createElement("div");
+    //     block.className = "output-row";
+    //     if(mat.quantity > 1) mat.name+= "s";
+    //     let text = document.createElement("div");
+    //     text.innerHTML = `${mat.quantity} ${mat.name}`;
+    //     block.appendChild(text);
+    //     if(mat.mats) mat.mats.forEach(obj => {
+    //         let result = this.outputMats(obj);
+    //         block.appendChild(result);
+    //     });
+    //     return block;
+    // }
 
     getResult(target, quantity) {
         // clone the subset so we don't alter the recipes book
@@ -165,7 +159,7 @@ class Calculator {
 
     accumulate(item,quantity,produced) {
         if (!this.accumulator.hasOwnProperty(item)) {
-            this.accumulator[item] = {quantity:0,remainder:0};
+            this.accumulator[item] = {quantity:0,remainder:0,level:0};
         }
         if (quantity < this.accumulator[item].remainder) {
             this.accumulator[item].remainder -= quantity;
@@ -178,6 +172,9 @@ class Calculator {
             return true;
         }
         this.accumulator[item].quantity += produced;
+        
+        this.accumulator[item].level = this.recipeDB.getRecipe(item).getLevel();
+
         return true;
     }
         
