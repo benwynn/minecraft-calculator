@@ -24,7 +24,7 @@ class Calculator {
         let sortItems = items.map(x => { return {name: x, level: this.recipeDB.getRecipe(x).getLevel() }}, this);
         sortItems.sort(function(a,b) {return a.level - b.level})
         
-        let ingredientOutput = this.formatIngredients(result,sortItems);
+        let ingredientOutput = this.formatIngredients(target,quantity,sortItems);
         let remainderOutput = this.formatRemainders(items);
 
         output.appendChild(ingredientOutput);
@@ -39,13 +39,13 @@ class Calculator {
         return title;
     }
 
-    formatIngredients (result, sortItems) {
+    formatIngredients (target, quantity, sortItems) {
         var output = document.createElement("div");
         var title = document.createElement("div");
         var level = 0;        
 
         title.className = "output-title";
-        title.innerHTML = `${result.quantity} ${result.name}`;
+        title.innerHTML = `${quantity} ${target}`;
 
         output.appendChild(title)
 
@@ -113,67 +113,47 @@ class Calculator {
         return true;
     }
 
-    // outputMats (mat){
-    //     let block = document.createElement("div");
-    //     block.className = "output-row";
-    //     if(mat.quantity > 1) mat.name+= "s";
-    //     let text = document.createElement("div");
-    //     text.innerHTML = `${mat.quantity} ${mat.name}`;
-    //     block.appendChild(text);
-    //     if(mat.mats) mat.mats.forEach(obj => {
-    //         let result = this.outputMats(obj);
-    //         block.appendChild(result);
-    //     });
-    //     return block;
-    // }
-
     getResult(target, quantity) {
         // clone the subset so we don't alter the recipes book
         let recipe = this.recipeDB.getRecipe(target);
 
-        let result = {}
-        result.name = target;
-        result.quantity = quantity;
-
         if (!recipe) {
-            return result;
+            return false;
         }
-
-        if (!recipe.getMats().length) {
-            if (recipe.getQuantity()) {
-                this.accumulate(target,quantity,recipe.getQuantity());
-            } else {
-                this.accumulate(target,quantity,1);
-            }
-            result.name = target;
-            return result;
-        }
-
-        result.quantity =  recipe.getQuantity();
-        result.mats = [];
 
         while (quantity > 0) { 
-            this.accumulate(target,quantity,recipe.getQuantity());
-            recipe.getMats().forEach(obj =>{
-                let subresult = this.getResult(obj.name,obj.quantity);
-                if (subresult) {
-                    result.mats.push(subresult);
+            // handle base-level mats. Theoretically, should never be more than 1, but code accounts for more.
+            if (!recipe.getMats().length) {
+                if (recipe.getQuantity()) {
+                    this.accumulate(target,quantity,recipe.getQuantity());
+                    quantity -= recipe.getQuantity();
+                } else {
+                    this.accumulate(target,quantity,1);
+                    quantity -= 1;
                 }
+            } else {
+                // only get our ingredients if we produce. If we got our quantity from remainder, don't call accumulate
+                // on our mats.
+                if(this.accumulate(target,quantity,recipe.getQuantity())){
+                    for (let i=0;i<recipe.getMats().length;i++){
+                        let obj = recipe.getMats()[i];
+                        this.getResult(obj.name,obj.quantity);
+                    }}
                 quantity -= recipe.getQuantity();
-            });
-            result.quantity += recipe.getQuantity();
+            }
         }
-        
-        result.name = target;
-
-        return result;
+        return true;
     }
 
+    // returns true if we had to produce more of the item, false if we could get the quantity from remainders
     accumulate(item,quantity,produced) {
+        if(item == "Steel Ingot"){
+            console.log("blink")
+        };
         if (!this.accumulator.hasOwnProperty(item)) {
             this.accumulator[item] = {quantity:0,remainder:0,level:0};
         }
-        if (quantity < this.accumulator[item].remainder) {
+        if (quantity <= this.accumulator[item].remainder) {
             this.accumulator[item].remainder -= quantity;
             this.accumulator[item].quantity += quantity;
             return false;
@@ -191,6 +171,5 @@ class Calculator {
     }
         
 }
-
 
 export default Calculator;
