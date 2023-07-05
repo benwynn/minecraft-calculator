@@ -60,6 +60,10 @@
         "quantity": 1,
         "mats": []
     },
+    "Paper": {
+        "quantity": 1,
+        "mats": []
+    },
     "Redstone": {
         "quantity": 1,
         "mats": []
@@ -136,6 +140,40 @@
             "name": "Copper Ingot",
             "quantity": 1}]
     },
+    "Curved Copper Plate": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Copper Plate",
+            "quantity": 1}]
+    },
+    "Copper Rod": {
+        "quantity": 2,
+        "mats": [{
+            "name": "Copper Ingot",
+            "quantity": 1}]
+    },
+    "Copper Ring": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Copper Rod",
+            "quantity": 1}]
+    },
+    "Copper Blade": {
+        "quantity": 4,
+        "mats": [{
+            "name": "Curved Copper Plate",
+            "quantity": 2},
+            {"name": "Copper Rod",
+            "quantity": 1}]
+    },
+    "Copper Rotor": {
+        "quantity": 1,
+        "mats": [{
+            "name": "Copper Blade",
+            "quantity": 4},
+            {"name": "Copper Ring",
+            "quantity": 1}]
+    },  
     "Gold Plate": {
         "quantity": 1,
         "mats": [{
@@ -226,7 +264,7 @@
             "name": "Steel Rod",
             "quantity": 1}]
     },
-    "Tin Fan Blade": {
+    "Tin Blade": {
         "quantity": 4,
         "mats": [{
             "name": "Curved Tin Plate",
@@ -234,10 +272,10 @@
             {"name": "Tin Rod",
             "quantity": 1}]
     },
-    "Tin Fan": {
+    "Tin Rotor": {
         "quantity": 1,
         "mats": [{
-            "name": "Tin Fan Blade",
+            "name": "Tin Blade",
             "quantity": 4},
             {"name": "Tin Ring",
             "quantity": 1}]
@@ -292,9 +330,9 @@
         "quantity": 1,
         "mats": [{
             "name": "Copper Plate",
-            "quantity": 2},
+            "quantity": 1},
             {"name": "Rubber Sheet",
-            "quantity": 1}]
+            "quantity": 2}]
     },
     "P-doped Silicon": {
         "quantity": 1,
@@ -336,15 +374,15 @@
             {"name": "P-doped Silicon",
             "quantity": 2}]
     },
-    "Aluminum Fan": {
+    "Aluminum Rotor": {
         "quantity": 1,
         "mats": [{
-            "name": "Aluminum Fan Blade",
+            "name": "Aluminum Blade",
             "quantity": 4},
             {"name": "Aluminum Ring",
             "quantity": 1}]
     }, 
-    "Aluminum Fan Blade": {
+    "Aluminum Blade": {
         "quantity": 4,
         "mats": [{
             "name": "Curved Aluminum Plate",
@@ -407,7 +445,7 @@
             "quantity": 3},
             {"name": "Motor",
             "quantity": 1},
-            {"name": "Tin Fan",
+            {"name": "Tin Rotor",
             "quantity": 3}]
     },
     "Motor": {
@@ -435,7 +473,7 @@
     "Large Pump": {
         "quantity": 1,
         "mats": [{
-            "name": "Aluminum Fan",
+            "name": "Aluminum Rotor",
             "quantity": 3},
             {"name": "Pump",
             "quantity": 3},
@@ -449,7 +487,7 @@
         "mats": [{
             "name": "Curved Bronze Plate",
             "quantity": 6},
-            {"name": "Steel Gear",
+            {"name": "Copper Rotor",
             "quantity": 2},
             {"name": "Glass Pane",
             "quantity": 1}]
@@ -495,6 +533,6 @@
             {"name": "Battery Alloy Plate",
             "quantity": 1},
             {"name": "Curved Battery Alloy Plate",
-            "quantity": 5}]
+            "quantity": 4}]
     }
 }
