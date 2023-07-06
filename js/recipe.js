@@ -4,15 +4,17 @@ class Recipe {
     #recipeDB;
     #name = "unset";
     #level = undefined;
+    #machine = undefined;
     #quantity = 0;
     #mats = [];
 
-    constructor(recipeDB, name, quantity, mats) {
+    constructor(recipeDB, name, quantity, machine, mats) {
         this.#recipeDB = recipeDB;
         this.#name = name;
         if (quantity) this.#quantity = quantity;
         // clone the subset so we don't alter the recipes book
         if (mats) this.#mats = mats;
+        if (machine) this.#machine = machine;
     }
 
     getName() {
@@ -51,6 +53,10 @@ class Recipe {
 
     getMats() {
         return this.#mats;
+    }
+
+    getMachine() {
+        return this.#machine;
     }
 }
 

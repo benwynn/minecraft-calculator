@@ -17,11 +17,21 @@ footer {
 }
 
 .output-title{
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.output-machine{
+  padding-left: 20px;
+  font-weight: bold;
+}
+
+.output-step{
   font-weight: bold;
 }
 
 .output-row{
-  padding-left: 20px;
+  padding-left: 40px;
 }
 
 .cookie-notice {

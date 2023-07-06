@@ -20,9 +20,16 @@ class Calculator {
 
         let items = Object.keys(this.accumulator);
         items.sort();
+        items.reverse();
 
-        let sortItems = items.map(x => { return {name: x, level: this.recipeDB.getRecipe(x).getLevel() }}, this);
-        sortItems.sort(function(a,b) {return a.level - b.level})
+        let sortItems = items.map(x => { return {name: x, level: this.recipeDB.getRecipe(x).getLevel(), machine: this.recipeDB.getRecipe(x).getMachine()}}, this);
+        sortItems.sort(function(a,b) {
+            if(!a.machine) {return -1};
+            if(!b.machine) {return 0};
+            let q = a.machine.localeCompare(b.machine);
+            return q
+        });
+        sortItems.sort(function(a,b) {return a.level - b.level});
         
         let ingredientOutput = this.formatIngredients(target,quantity,sortItems);
         let remainderOutput = this.formatRemainders(items);
@@ -42,21 +49,33 @@ class Calculator {
     formatIngredients (target, quantity, sortItems) {
         var output = document.createElement("div");
         var title = document.createElement("div");
-        var level = 0;        
+        var level = undefined;  
+        var machine = undefined;      
 
         title.className = "output-title";
         title.innerHTML = `${quantity} ${target}`;
 
         output.appendChild(title)
 
-        sortItems.forEach( item => {
+        for (let i=0;i<sortItems.length;i++){
+
+            let item = sortItems[i];
             let text = document.createElement("div");
+            text.className = "output-row";
+            let machineText = document.createElement("div");
             let name = item.name;
             let suffix = "";
             
             if(item.level != level) {
-                output = this.addSeparator(output);
                 level = item.level;
+                output = this.addStep(output,level);
+            }
+
+            if(item.machine && (item.machine != machine)) {
+                machine = item.machine;
+                machineText.className = "output-machine";
+                machineText.innerHTML = `${machine}`;
+                output.appendChild(machineText);
             }
 
             if (this.addSuffix(name,this.accumulator[name].quantity)) {
@@ -64,12 +83,21 @@ class Calculator {
             }
             text.innerHTML =`${this.accumulator[name].quantity} ${name}${suffix}`;
             output.appendChild(text);
-        })
-        output = this.addSeparator(output);
+        }
+        this.addSeparator(output)
         return output;
     }
 
-    addSeparator(output){
+    addStep(output,level){
+        let separator = document.createElement("p");
+        let adjustedLevel = level +1 ;
+        separator.className = "output-step";
+        separator.innerHTML = `Step ${adjustedLevel}`
+        output.appendChild(separator);
+        return output;
+    }
+
+    addSeparator(output) {
         let separator = document.createElement("p");
         output.appendChild(separator);
         return output;
@@ -147,11 +175,11 @@ class Calculator {
 
     // returns true if we had to produce more of the item, false if we could get the quantity from remainders
     accumulate(item,quantity,produced) {
-        if(item == "Steel Ingot"){
-            console.log("blink")
-        };
+        // if we haven't already encountered this item, initialize it here.
         if (!this.accumulator.hasOwnProperty(item)) {
-            this.accumulator[item] = {quantity:0,remainder:0,level:0};
+            this.accumulator[item] = {quantity:0,remainder:0,level:0,machine:undefined};
+            this.accumulator[item].level = this.recipeDB.getRecipe(item).getLevel();
+            this.accumulator[item].machine = this.recipeDB.getRecipe(item).getMachine();
         }
         if (quantity <= this.accumulator[item].remainder) {
             this.accumulator[item].remainder -= quantity;
@@ -165,7 +193,6 @@ class Calculator {
         }
         this.accumulator[item].quantity += produced;
         
-        this.accumulator[item].level = this.recipeDB.getRecipe(item).getLevel();
 
         return true;
     }
