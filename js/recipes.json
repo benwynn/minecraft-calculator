@@ -375,7 +375,7 @@
         "mats": [{
             "name": "Silicon Plate",
             "quantity": 1},
-            {"name": "Antimony Tiny Dust",
+            {"name": "Aluminum Tiny Dust",
             "quantity": 1}]
     },
     "N-doped Silicon": {
@@ -384,11 +384,11 @@
         "mats": [{
             "name": "Silicon Plate",
             "quantity": 1},
-            {"name": "Aluminum Tiny Dust",
+            {"name": "Antimony Tiny Dust",
             "quantity": 1}]
     },
     "Diode": {
-        "quantity": 2,
+        "quantity": 4,
         "mats": [{
             "name": "Fine Electrum Wire",
             "quantity": 3},
