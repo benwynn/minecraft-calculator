@@ -8,7 +8,7 @@ class RecipeDB {
         this.recipes = recipes;
         Object.keys(this.recipes).forEach(recipeName => {
             let recipeData = recipes[recipeName];
-            let recipe = new Recipe(this, recipeName, recipeData.quantity, recipeData.machine, recipeData.mats);
+            let recipe = new Recipe(this, recipeName, recipeData.quantity, recipeData.machine, recipeData.plural, recipeData.mats);
             this.#recipeMap[recipe.getName()] = recipe;
         })
     }

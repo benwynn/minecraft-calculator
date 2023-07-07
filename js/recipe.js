@@ -3,22 +3,30 @@ class Recipe {
 
     #recipeDB;
     #name = "unset";
+    #plural = undefined;
     #level = undefined;
     #machine = undefined;
     #quantity = 0;
     #mats = [];
 
-    constructor(recipeDB, name, quantity, machine, mats) {
+    constructor(recipeDB, name, quantity, machine, plural, mats) {
         this.#recipeDB = recipeDB;
         this.#name = name;
         if (quantity) this.#quantity = quantity;
         // clone the subset so we don't alter the recipes book
         if (mats) this.#mats = mats;
         if (machine) this.#machine = machine;
+        if (plural) this.#plural = plural;
     }
 
     getName() {
         return this.#name;
+    }
+
+    getPlural() {
+        if(!this.#plural) {
+            return (this.#name + "s")};
+        return this.#plural;
     }
 
     getLevel() {

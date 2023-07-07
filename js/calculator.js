@@ -20,14 +20,13 @@ class Calculator {
 
         let items = Object.keys(this.accumulator);
         items.sort();
-        items.reverse();
 
         let sortItems = items.map(x => { return {name: x, level: this.recipeDB.getRecipe(x).getLevel(), machine: this.recipeDB.getRecipe(x).getMachine()}}, this);
         sortItems.sort(function(a,b) {
-            if(!a.machine) {return -1};
+            if(!a.machine && !b.machine) {return a.name.localeCompare(b.name)};
+            if(!a.machine) {return -1}
             if(!b.machine) {return 0};
-            let q = a.machine.localeCompare(b.machine);
-            return q
+            return a.machine.localeCompare(b.machine);
         });
         sortItems.sort(function(a,b) {return a.level - b.level});
         
@@ -64,7 +63,7 @@ class Calculator {
             text.className = "output-row";
             let machineText = document.createElement("div");
             let name = item.name;
-            let suffix = "";
+            let outName = item.name;
             
             if(item.level != level) {
                 level = item.level;
@@ -79,9 +78,9 @@ class Calculator {
             }
 
             if (this.addSuffix(name,this.accumulator[name].quantity)) {
-                suffix += "s";
+                outName = this.recipeDB.getRecipe(item.name).getPlural();
             }
-            text.innerHTML =`${this.accumulator[name].quantity} ${name}${suffix}`;
+            text.innerHTML =`${this.accumulator[name].quantity} ${outName}`;
             output.appendChild(text);
         }
         this.addSeparator(output)
@@ -117,13 +116,12 @@ class Calculator {
             let text = document.createElement("div");
             let remainderText = document.createElement("div");
             let name = itemName;
-            let suffix = "";
 
             if(this.addSuffix(name,this.accumulator[itemName].remainder)) {
-                suffix += "s";
+                name = this.recipeDB.getRecipe(itemName).getPlural();
             }
             if (this.accumulator[itemName].remainder > 0) {
-                remainderText.innerHTML = `${this.accumulator[itemName].remainder} ${name}${suffix}`;
+                remainderText.innerHTML = `${this.accumulator[itemName].remainder} ${name}`;
                 remainders.appendChild(remainderText);
             }
         });
@@ -137,7 +135,6 @@ class Calculator {
 
     addSuffix(text,quantity) {
         if(quantity < 2) return false;
-        if(text.slice(-1)=="s") return false;
         return true;
     }
 
