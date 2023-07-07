@@ -338,7 +338,7 @@
     },  
     "Capacitor": {
         "machine": "Assembler",
-        "quantity": 2,
+        "quantity": 4,
         "mats": [{
             "name": "Gold Plate",
             "quantity": 2},
