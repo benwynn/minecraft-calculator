@@ -130,7 +130,7 @@ class Calculator {
     }
 
     reset() {
-        this.accumulator = [];
+        this.accumulator = {};
     }
 
     addSuffix(text,quantity) {
@@ -174,9 +174,13 @@ class Calculator {
     accumulate(item,quantity,produced) {
         // if we haven't already encountered this item, initialize it here.
         if (!this.accumulator.hasOwnProperty(item)) {
-            this.accumulator[item] = {quantity:0,remainder:0,level:0,machine:undefined};
-            this.accumulator[item].level = this.recipeDB.getRecipe(item).getLevel();
-            this.accumulator[item].machine = this.recipeDB.getRecipe(item).getMachine();
+            this.accumulator[item] = {
+                name: item,
+                quantity: 0,
+                remainder: 0,
+                level: this.recipeDB.getRecipe(item).getLevel(),
+                machine: this.recipeDB.getRecipe(item).getMachine()
+            };
         }
         if (quantity <= this.accumulator[item].remainder) {
             this.accumulator[item].remainder -= quantity;
