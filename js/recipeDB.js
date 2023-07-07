@@ -1,14 +1,13 @@
+import recipes from "./recipes.json" assert {type: "json"}
 import Recipe from "./recipe.js"
 
 class RecipeDB {
 
     #recipeMap = {};
 
-    constructor(recipes) {
-        this.recipes = recipes;
-        Object.keys(this.recipes).forEach(recipeName => {
-            let recipeData = recipes[recipeName];
-            let recipe = new Recipe(this, recipeName, recipeData.quantity, recipeData.machine, recipeData.plural, recipeData.mats);
+    constructor() {
+        recipes.forEach(recipeData => {
+            let recipe = new Recipe(this, recipeData.name, recipeData.quantity, recipeData.machine, recipeData.plural, recipeData.mats);
             this.#recipeMap[recipe.getName()] = recipe;
         })
     }

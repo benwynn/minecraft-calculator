@@ -1,5 +1,3 @@
-
-import recipes from "./recipes.json" assert {type: "json"}
 import RecipeDB from "./recipeDB.js"
 import Calculator from "./calculator.js"
 
@@ -16,7 +14,7 @@ cookieNoticeClose.addEventListener("click", function() {
 
 console.log("Starting...");
 
-var recipeDB = new RecipeDB(recipes);
+var recipeDB = new RecipeDB();
 console.log("Finished loading recipeDB");
 
 var calc = new Calculator(recipeDB);

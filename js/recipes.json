@@ -1,128 +1,153 @@
-
-{
-    "Iron Ingot": {
+[
+    {
+        "name": "Iron Ingot",
         "quantity": 1,
         "mats": []
     },
-    "Copper Ingot": {
+    {
+        "name": "Copper Ingot",
         "quantity": 1,
         "mats": []
     },
-    "Log": {
+    {
+        "name": "Log",
         "quantity": 1,
         "mats": []
     },
-    "Antimony Tiny Dust": {
+    {
+        "name": "Antimony Tiny Dust",
         "quantity": 1,
         "mats": []
     },
-    "Aluminum Tiny Dust": {
+    {
+        "name": "Aluminum Tiny Dust",
         "quantity": 1,
         "mats": []
     },
-    "Tin Ingot": {
+    {
+        "name": "Tin Ingot",
         "quantity": 1,
         "mats": []
     },
-    "Aluminum Ingot": {
+    {
+        "name": "Aluminum Ingot",
         "quantity": 1,
         "mats": []
     },
-    "Gold Ingot": {
+    {
+        "name": "Gold Ingot",
         "quantity": 1,
         "mats": []
     },
-    "Silicon Ingot": {
+    {
+        "name": "Silicon Ingot",
         "quantity": 1,
         "mats": []
     },
-    "Steel Ingot": {
+    {
+        "name": "Steel Ingot",
         "quantity": 1,
         "mats": []
     },
-    "Glass":  {
+    {
+        "name": "Glass",
         "plural": "Glass",
         "quantity": 1,
         "mats": []
     },
-    "Rubber Sheet" : {
+    {
+        "name": "Rubber Sheet",
         "quantity": 1,
         "mats": []
     },
-    "Coal": {
+    {
+        "name": "Coal",
         "quantity": 1,
         "plural": "Coal",
         "mats": []
     },
-    "Bronze Ingot": {
+    {
+        "name": "Bronze Ingot",
         "quantity": 1,
         "mats": []
     },
-    "Electrum Ingot": {
+    {
+        "name": "Electrum Ingot",
         "quantity": 1,
         "mats": []
     },
-    "Paper": {
+    {
+        "name": "Paper",
         "quantity": 1,
         "mats": []
     },
-    "Redstone": {
+    {
+        "name": "Redstone",
         "plural": "Redstone",
         "quantity": 1,
         "mats": []
     },
-    "Battery Alloy Ingot": {
+    {
+        "name": "Battery Alloy Ingot",
         "quantity": 1,
         "mats": []
     },
-    "Bronze Plate": {
+    {
+        "name": "Bronze Plate",
         "quantity": 1,
         "machine": "Compressor",
         "mats": [{
             "name": "Bronze Ingot",
             "quantity": 1 }]
     },    
-    "Curved Bronze Plate": {
+    {
+        "name": "Curved Bronze Plate",
         "quantity": 1,
         "machine": "Compressor",
         "mats": [{
             "name": "Bronze Plate",
             "quantity": 1 }]
     },
-    "Battery Alloy Plate": {
+    {
+        "name": "Battery Alloy Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Battery Alloy Ingot",
             "quantity": 1 }]
     },    
-    "Curved Battery Alloy Plate": {
+    {
+        "name": "Curved Battery Alloy Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Battery Alloy Plate",
             "quantity": 1 }]
     },
-    "Coal Dust": {
+    {
+        "name": "Coal Dust",
         "machine": "Macerator",
         "quantity": 1,
         "mats": [{
             "name": "Coal",
             "quantity": 1 }]
     },
-    "Planks": {
+    {
+        "name": "Planks",
         "quantity": 4,
         "mats": [{
             "name": "Log",
             "quantity": 1 }]
     },
-    "Stick": {
+    {
+        "name": "Stick",
         "quantity": 4,
         "mats": [{ 
             "name": "Planks",
             "quantity": 2 }]
     },
-    "Iron Shovel":{
+    {
+        "name": "Iron Shovel",
         "quantity": 1,
         "mats": [{
             "name": "stick",
@@ -130,49 +155,56 @@
             {"name": "iron ingot",
             "quantity": 1}]
     },
-    "Silicon Plate": {
+    {
+        "name": "Silicon Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Silicon Ingot",
             "quantity": 1}]
     },
-    "Copper Wire": {
+    {
+        "name": "Copper Wire",
         "machine": "Wiremill",
         "quantity": 2,
         "mats": [{
             "name": "Copper Plate",
             "quantity": 1}]
     },
-    "Copper Plate": {
+    {
+        "name": "Copper Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Copper Ingot",
             "quantity": 1}]
     },
-    "Curved Copper Plate": {
+    {
+        "name": "Curved Copper Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Copper Plate",
             "quantity": 1}]
     },
-    "Copper Rod": {
+    {
+        "name": "Copper Rod",
         "machine": "Cutting Machine",
         "quantity": 2,
         "mats": [{
             "name": "Copper Ingot",
             "quantity": 1}]
     },
-    "Copper Ring": {
+    {
+        "name": "Copper Ring",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Copper Rod",
             "quantity": 1}]
     },
-    "Copper Blade": {
+    {
+        "name": "Copper Blade",
         "quantity": 4,
         "mats": [{
             "name": "Curved Copper Plate",
@@ -180,7 +212,8 @@
             {"name": "Copper Rod",
             "quantity": 1}]
     },
-    "Copper Rotor": {
+    {
+        "name": "Copper Rotor",
         "machine": "Assembler",
         "quantity": 1,
         "mats": [{
@@ -189,112 +222,128 @@
             {"name": "Copper Ring",
             "quantity": 1}]
     },  
-    "Gold Plate": {
+    {
+        "name": "Gold Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Gold Ingot",
             "quantity": 1}]
     },
-    "Curved Aluminum Plate": {
+    {
+        "name": "Curved Aluminum Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Aluminum Plate",
             "quantity": 1}]
     },
-    "Aluminum Plate": {
+    {
+        "name": "Aluminum Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Aluminum Ingot",
             "quantity": 1}]
     },
-    "Aluminum Rod": {
+    {
+        "name": "Aluminum Rod",
         "machine": "Cutting Machine",
         "quantity": 2,
         "mats": [{
             "name": "Aluminum Ingot",
             "quantity": 1}]
     },
-    "Aluminum Ring": {
+    {
+        "name": "Aluminum Ring",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Aluminum Rod",
             "quantity": 1}]
     },
-    "Curved Tin Plate":{
+    {
+        "name": "Curved Tin Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Tin Plate",
             "quantity": 1}]
     },
-    "Tin Plate":{
+    {
+        "name": "Tin Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Tin Ingot",
             "quantity": 1}]
     },
-    "Tin Rod": {
+    {
+        "name": "Tin Rod",
         "machine": "Cutting Machine",
         "quantity": 2,
         "mats": [{
             "name": "Tin Ingot",
             "quantity": 1}]
     },
-    "Tin Ring": {
+    {
+        "name": "Tin Ring",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Tin Rod",
             "quantity": 1}]
     },
-    "Steel Plate":{
+    {
+        "name": "Steel Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Steel Ingot",
             "quantity": 1}]
     },
-    "Tin Cable": {
+    {
+        "name": "Tin Cable",
         "machine": "Assembler",
         "quantity": 3,
         "mats": [{
             "name": "Tin Wire",
             "quantity": 3}]
     },
-    "Tin Wire": {
+    {
+        "name": "Tin Wire",
         "machine": "Wiremill",
         "quantity": 2,
         "mats": [{
             "name": "Tin Plate",
             "quantity": 1}]
     },
-    "Steel Rod": {
+    {
+        "name": "Steel Rod",
         "machine": "Cutting Machine",
         "quantity": 2,
         "mats": [{
             "name": "Steel Ingot",
             "quantity": 1}]
     },    
-    "Steel Ring": {
+    {
+        "name": "Steel Ring",
         "machine": "Compressor",
         "quantity": 2,
         "mats": [{
             "name": "Steel Rod",
             "quantity": 1}]
     },
-    "Magnitized Steel Rod": {
+    {
+        "name": "Magnitized Steel Rod",
         "machine": "Polarizer",
         "quantity": 1,
         "mats": [{
             "name": "Steel Rod",
             "quantity": 1}]
     },
-    "Tin Blade": {
+    {
+        "name": "Tin Blade",
         "quantity": 4,
         "mats": [{
             "name": "Curved Tin Plate",
@@ -302,7 +351,8 @@
             {"name": "Tin Rod",
             "quantity": 1}]
     },
-    "Tin Rotor": {
+    {
+        "name": "Tin Rotor",
         "machine": "Assembler",
         "quantity": 1,
         "mats": [{
@@ -311,7 +361,8 @@
             {"name": "Tin Ring",
             "quantity": 1}]
     },  
-    "Resistor": {
+    {
+        "name": "Resistor",
         "machine": "Assembler",
         "quantity": 12,
         "mats": [{
@@ -320,14 +371,16 @@
             {"name": "Coal Dust",
             "quantity": 1}]
     },  
-    "Fine Copper Wire": {
+    {
+        "name": "Fine Copper Wire",
         "machine": "Wiremill",
         "quantity": 4,
         "mats": [{
             "name": "Copper Wire",
             "quantity": 1}]
     },
-    "Inductor": {
+    {
+        "name": "Inductor",
         "machine": "Assembler",
         "quantity": 4,
         "mats": [{
@@ -336,7 +389,8 @@
             {"name": "Steel Rod",
             "quantity": 1}]
     },  
-    "Capacitor": {
+    {
+        "name": "Capacitor",
         "machine": "Assembler",
         "quantity": 2,
         "mats": [{
@@ -347,7 +401,8 @@
             {"name": "Rubber Sheet",
             "quantity": 1}]
     },
-    "Analog Circuit": {
+    {
+        "name": "Analog Circuit",
         "quantity": 1,
         "mats": [{
             "name": "Capacitor",
@@ -361,7 +416,8 @@
             {"name": "Analog Circuit Board",
             "quantity": 1}]
     },
-    "Analog Circuit Board": {
+    {
+        "name": "Analog Circuit Board",
         "quantity": 1,
         "mats": [{
             "name": "Copper Plate",
@@ -369,7 +425,8 @@
             {"name": "Rubber Sheet",
             "quantity": 2}]
     },
-    "P-doped Silicon": {
+    {
+        "name": "P-doped Silicon",
         "machine": "Chemical Reactor",
         "quantity": 1,
         "mats": [{
@@ -378,7 +435,8 @@
             {"name": "Antimony Tiny Dust",
             "quantity": 1}]
     },
-    "N-doped Silicon": {
+    {
+        "name": "N-doped Silicon",
         "machine": "Chemical Reactor",
         "quantity": 1,
         "mats": [{
@@ -387,7 +445,8 @@
             {"name": "Aluminum Tiny Dust",
             "quantity": 1}]
     },
-    "Diode": {
+    {
+        "name": "Diode",
         "quantity": 2,
         "mats": [{
             "name": "Fine Electrum Wire",
@@ -399,7 +458,8 @@
             {"name": "Glass",
             "quantity": 3}]
     },
-    "Transistor": {
+    {
+        "name": "Transistor",
         "quantity": 4,
         "mats": [{
             "name": "Fine Electrum Wire",
@@ -411,7 +471,8 @@
             {"name": "P-doped Silicon",
             "quantity": 2}]
     },
-    "Aluminum Rotor": {
+    {
+        "name": "Aluminum Rotor",
         "machine": "Assembler",
         "quantity": 1,
         "mats": [{
@@ -420,7 +481,8 @@
             {"name": "Aluminum Ring",
             "quantity": 1}]
     }, 
-    "Aluminum Blade": {
+    {
+        "name": "Aluminum Blade",
         "quantity": 4,
         "mats": [{
             "name": "Curved Aluminum Plate",
@@ -428,7 +490,8 @@
             {"name": "Aluminum Rod",
             "quantity": 1}]
     },
-    "Electronic Circuit Board": {
+    {
+        "name": "Electronic Circuit Board",
         "quantity": 1,
         "mats": [{
             "name": "Aluminum Plate",
@@ -440,35 +503,40 @@
             {"name": "Analog Circuit Board",
             "quantity": 1}]
     },   
-    "Electrum Cable": {
+    {
+        "name": "Electrum Cable",
         "machine": "Assembler",
         "quantity": 3,
         "mats": [{
             "name": "Electrum Wire",
             "quantity": 3}]
     },
-    "Electrum Wire": {
+    {
+        "name": "Electrum Wire",
         "machine": "Wiremill",
         "quantity": 2,
         "mats": [{
             "name": "Electrum Plate",
             "quantity": 1}]
     },
-    "Electrum Plate": {
+    {
+        "name": "Electrum Plate",
         "machine": "Compressor",
         "quantity": 1,
         "mats": [{
             "name": "Electrum Ingot",
             "quantity": 1}]
     },
-    "Fine Electrum Wire": {
+    {
+        "name": "Fine Electrum Wire",
         "machine": "Wiremill",
         "quantity": 4,
         "mats": [{
             "name": "Electrum Wire",
             "quantity": 1}]
     },
-    "Electronic Circuit": {
+    {
+        "name": "Electronic Circuit",
         "quantity": 1,
         "mats": [{
             "name": "Analog Circuit",
@@ -480,7 +548,8 @@
             {"name": "Electronic Circuit Board",
             "quantity": 1}]
     },
-    "Pump": {
+    {
+        "name": "Pump",
         "machine": "Assembler",
         "quantity": 1,
         "mats": [{
@@ -491,7 +560,8 @@
             {"name": "Tin Rotor",
             "quantity": 3}]
     },
-    "Motor": {
+    {
+        "name": "Motor",
         "quantity": 1,
         "mats": [{
             "name": "Copper Wire",
@@ -503,7 +573,8 @@
             {"name": "Tin Cable",
             "quantity": 2}]
     },
-    "Large Motor": {
+    {
+        "name": "Large Motor",
         "quantity": 1,
         "mats": [{
             "name": "Motor",
@@ -513,7 +584,8 @@
             {"name": "Electronic Circuit",
             "quantity": 1}]
     },
-    "Large Pump": {
+    {
+        "name": "Large Pump",
         "quantity": 1,
         "mats": [{
             "name": "Aluminum Rotor",
@@ -525,7 +597,8 @@
             {"name": "Electronic Circuit",
             "quantity": 2}]
     },
-    "Fluid Pipe":{
+    {
+        "name": "Fluid Pipe",
         "quantity": 16,
         "mats": [{
             "name": "Curved Bronze Plate",
@@ -535,14 +608,16 @@
             {"name": "Glass Pane",
             "quantity": 1}]
     },
-    "Glass Pane":{
+    {
+        "name": "Glass Pane",
         "quantity": 16,
         "mats": [{
             "name": "Glass",
             "quantity": 6
         }]
     },
-    "Steel Gear":{
+    {
+        "name": "Steel Gear",
         "machine": "Assembler",
         "quantity": 2,
         "mats": [{
@@ -551,7 +626,8 @@
             {"name": "Steel Ring",
             "quantity": 1}]
     },
-    "Advanced Large Steam Boiler": {
+    {
+        "name": "Advanced Large Steam Boiler",
         "quantity": 1,
         "mats": [{
             "name": "Pump",
@@ -563,11 +639,13 @@
             {"name": "Large Steam Boiler",
             "quantity": 1}]
     },
-    "Large Steam Boiler":{
+    {
+        "name": "Large Steam Boiler",
         "quantity": 1,
         "mats":[]
     },
-    "Redstone Battery": {
+    {
+        "name": "Redstone Battery",
         "quantity": 1,
         "plural": "Redstone Batteries",
         "mats": [{
@@ -580,4 +658,4 @@
             {"name": "Curved Battery Alloy Plate",
             "quantity": 4}]
     }
-}
+]
