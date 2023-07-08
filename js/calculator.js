@@ -9,13 +9,16 @@ class Calculator {
 
     calculate(target,quantity) {
         var output = document.createElement("div");
-        var title = document.createElement("div");
 
         this.reset();
 
+        if(!this.recipeDB.getRecipe(target)) {
+            target = target.substring(0, target.length - 1);
+        }
+
         let result = this.getResult(target,quantity);
         if (!result) {
-            return this.noResult();
+            return this.noResult(target);
         }
 
         let items = Object.keys(this.accumulator);
@@ -39,7 +42,7 @@ class Calculator {
         return output;
     }
 
-    noResult () {
+    noResult (target) {
         let title = document.createElement("div");
         title.innerHTML = "We could not locate this item in the database: " + target;
         return title;
@@ -47,44 +50,50 @@ class Calculator {
 
     formatIngredients (target, quantity, sortItems) {
         var output = document.createElement("div");
-        var title = document.createElement("div");
         var level = undefined;  
-        var machine = undefined;      
-
-        title.className = "output-title";
-        title.innerHTML = `${quantity} ${target}`;
-
-        output.appendChild(title)
+        var machine = undefined;  
+        
+        output = this.addTitle(output,target,quantity);
 
         for (let i=0;i<sortItems.length;i++){
 
             let item = sortItems[i];
             let text = document.createElement("div");
             text.className = "output-row";
-            let machineText = document.createElement("div");
             let name = item.name;
             let outName = item.name;
             
             if(item.level != level) {
                 level = item.level;
+                // the first items in any step will be made w/ crafting table. Reset machine to reflect this.
+                machine = undefined;
                 output = this.addStep(output,level);
             }
 
             if(item.machine && (item.machine != machine)) {
                 machine = item.machine;
-                machineText.className = "output-machine";
-                machineText.innerHTML = `${machine}`;
-                output.appendChild(machineText);
+                output = this.addMachine(output,machine)
             }
 
-            if (this.addSuffix(name,this.accumulator[name].quantity)) {
+            if (this.usePlural(this.accumulator[name].quantity)) {
                 outName = this.recipeDB.getRecipe(item.name).getPlural();
             }
+
             text.innerHTML =`${this.accumulator[name].quantity} ${outName}`;
             output.appendChild(text);
         }
         this.addSeparator(output)
         return output;
+    }
+
+    addTitle(output,target,quantity){        
+        let title = document.createElement("div");
+
+        title.className = "output-title";
+        title.innerHTML = `${quantity} ${target}`;
+
+        output.appendChild(title);
+        return output;  
     }
 
     addStep(output,level){
@@ -93,6 +102,14 @@ class Calculator {
         separator.className = "output-step";
         separator.innerHTML = `Step ${adjustedLevel}`
         output.appendChild(separator);
+        return output;
+    }
+
+    addMachine(output,machine) {        
+        let machineText = document.createElement("div");
+        machineText.className = "output-machine";
+        machineText.innerHTML = `${machine}`;
+        output.appendChild(machineText);
         return output;
     }
 
@@ -106,8 +123,6 @@ class Calculator {
         var title = document.createElement("div");
         let remainders = document.createElement("div");
 
-  //      let items = Object.keys(this.accumulator);
-
         title.className = "output-title";
         title.innerHTML = "Remainders"
         remainders.appendChild(title);
@@ -117,7 +132,7 @@ class Calculator {
             let remainderText = document.createElement("div");
             let name = itemName;
 
-            if(this.addSuffix(name,this.accumulator[itemName].remainder)) {
+            if(this.usePlural(this.accumulator[itemName].remainder)) {
                 name = this.recipeDB.getRecipe(itemName).getPlural();
             }
             if (this.accumulator[itemName].remainder > 0) {
@@ -133,7 +148,7 @@ class Calculator {
         this.accumulator = {};
     }
 
-    addSuffix(text,quantity) {
+    usePlural(quantity) {
         if(quantity < 2) return false;
         return true;
     }

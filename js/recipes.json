@@ -93,6 +93,11 @@
         "mats": []
     },
     {
+        "name": "Silicon Dust",
+        "quantity": 1,
+        "mats": []
+    },
+    {
         "name": "Bronze Plate",
         "quantity": 1,
         "machine": "Compressor",
@@ -657,5 +662,84 @@
             "quantity": 1},
             {"name": "Curved Battery Alloy Plate",
             "quantity": 4}]
+    },
+    {
+        "name": "Vacuum Freezer",
+        "quantity": 1,
+        "mats": [{
+            "name": "Electronic Circuit",
+            "quantity": 3},
+            {"name": "Aluminum Large Plate",
+            "quantity": 2},
+            {"name": "Large Pump",
+            "quantity": 3},
+            {"name": "Advanced Machine Hull",
+            "quantity": 1}]
+    },
+    {
+        "name": "Aluminum Large Plate",
+        "quantity": 1,
+        "mats": [{
+            "name": "Aluminum Plate",
+            "quantity": 4
+        }]
+    },
+    {
+        "name": "Advanced Machine Hull",
+        "quantity": 1,
+        "mats": [{
+            "name": "Electrum Cable",
+            "quantity": 3},
+            {"name": "Silicon Battery",
+            "quantity": 2},
+            {"name": "Advanced Machine Casing",
+            "quantity": 1},
+            {"name": "Electronic Circuit",
+            "quantity": 1}]
+    },
+    {
+        "name": "Silicon Battery",
+        "quantity": 1,
+        "plural": "Redstone Batteries",
+        "mats": [{
+            "name": "Silicon Dust",
+            "quantity": 2},
+            {"name": "Electrum Cable",
+            "quantity": 2},
+            {"name": "Battery Alloy Plate",
+            "quantity": 1},
+            {"name": "Curved Battery Alloy Plate",
+            "quantity": 4}]
+    },
+    {
+        "name": "Advanced Machine Hull",
+        "quantity": 1,
+        "mats": [{
+            "name": "Aluminum Plate",
+            "quantity": 8},
+            {"name": "Basic Machine Hull",
+            "quantity": 1}]
+    },
+    {
+        "name": "Basic Machine Hull",
+        "quantity": 1,
+        "mats": [{
+            "name": "Redstone Battery",
+            "quantity": 2},
+            {"name": "Analog Circuit",
+            "quantity": 1},
+            {"name": "Tin Cable",
+            "quantity": 3},
+            {"name": "Steel Machine Casing",
+            "quantity": 1}]
+    },
+    {
+        "name": "Steel Machine Casing",
+        "quantity": 1,
+        "mats": [{
+            "name": "Steel Plate",
+            "quantity": 8},
+            {"name": "Steel Gear",
+            "quantity": 1}]
     }
 ]
