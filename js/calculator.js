@@ -2,6 +2,7 @@
 
 class Calculator {
     accumulator = {};
+    inventory = {};
 
     constructor(recipeDB) {
         this.recipeDB = recipeDB;
@@ -11,6 +12,8 @@ class Calculator {
         var output = document.createElement("div");
 
         this.reset();
+
+        this.inventory = this.copyAccumulator();
 
         target = this.recipeDB.lookupRecipeName(target);
 
@@ -77,11 +80,77 @@ class Calculator {
                 outName = this.recipeDB.getRecipe(item.name).getPlural();
             }
 
-            text.innerHTML =`${this.accumulator[name].quantity} ${outName}`;
+            let recipeMakes = this.recipeDB.getRecipe(item.name).getQuantity();
+
+            let madeFrom = "";
+
+            if (recipeMakes > 1) {
+                madeFrom = this.madeFrom(item.name);
+            }
+
+            let itemInventory = this.getInventoryOutput(name);
+
+            text.innerHTML =`${this.accumulator[name].quantity} ${outName} ${itemInventory} ${madeFrom}`;
             output.appendChild(text);
         }
         this.addSeparator(output)
         return output;
+    }
+
+    copyAccumulator(){
+        let copy = {};
+
+        Object.keys(this.accumulator).forEach(item => {
+            copy[item] = Object.assign({}, this.accumulator[item]);
+        })
+
+        return copy;
+    }
+
+    madeFrom(name) {
+        let ingredients = "";
+        let recipe = this.recipeDB.getRecipe(name);
+        let mats = recipe.getMats();
+
+        let recipeQuantity = recipe.getQuantity();
+        let total = this.accumulator[name].quantity - this.getInventory(name);
+
+        if(total <1){
+            return "";
+        };
+
+        let multiplier = Math.ceil(total/recipeQuantity);
+
+        for(let i = 0; i < mats.length;i++){
+            let matName = mats[i].name;
+            let matQuantity = mats[i].quantity * multiplier;
+
+            ingredients += ` ${matQuantity} ${matName}`;
+        }
+        ingredients = ingredients.trim();
+        
+        return ("(made from " + ingredients +")");
+    }
+
+    getInventory(name) {
+        
+        if(!this.inventory[name]) {
+            return 0;
+        };
+        if (this.inventory[name].remainder) {
+            return this.inventory[name].remainder;
+        };
+        return 0;
+    }
+
+    getInventoryOutput(name) {
+
+        if(!this.inventory[name]) {
+            return "";
+        } else if (this.inventory[name].remainder) {
+            let outtext =  ("(" + `${this.inventory[name].remainder}` + " from inventory)");
+            return outtext;
+        }
     }
 
     addTitle(output,target,quantity){        
