@@ -12,9 +12,7 @@ class Calculator {
 
         this.reset();
 
-        if(!this.recipeDB.getRecipe(target)) {
-            target = target.substring(0, target.length - 1);
-        }
+        target = this.recipeDB.lookupRecipeName(target);
 
         let result = this.getResult(target,quantity);
         if (!result) {
@@ -34,7 +32,7 @@ class Calculator {
         sortItems.sort(function(a,b) {return a.level - b.level});
         
         let ingredientOutput = this.formatIngredients(target,quantity,sortItems);
-        let remainderOutput = this.formatRemainders(items);
+        let remainderOutput = this.formatInventory();
 
         output.appendChild(ingredientOutput);
         output.appendChild(remainderOutput);
@@ -119,9 +117,13 @@ class Calculator {
         return output;
     }
 
-    formatRemainders (items) {
+    formatInventory () {
+        
         var title = document.createElement("div");
         let remainders = document.createElement("div");
+
+        let items = Object.keys(this.accumulator);
+        items.sort();
 
         title.className = "output-title";
         title.innerHTML = "Remainders"
@@ -142,10 +144,6 @@ class Calculator {
         });
 
         return remainders;
-    }
-
-    reset() {
-        this.accumulator = {};
     }
 
     usePlural(quantity) {
@@ -175,11 +173,16 @@ class Calculator {
                 // only get our ingredients if we produce. If we got our quantity from remainder, don't call accumulate
                 // on our mats.
                 if(this.accumulate(target,quantity,recipe.getQuantity())){
-                    for (let i=0;i<recipe.getMats().length;i++){
-                        let obj = recipe.getMats()[i];
+                    let mats = recipe.getMats();
+                    for (let i=0;i<mats.length;i++){
+                        let obj = mats[i];
                         this.getResult(obj.name,obj.quantity);
-                    }}
-                quantity -= recipe.getQuantity();
+                    };
+                    quantity -= recipe.getQuantity();
+                } else {
+                    quantity = 0;
+                }
+                
             }
         }
         return true;
@@ -187,16 +190,14 @@ class Calculator {
 
     // returns true if we had to produce more of the item, false if we could get the quantity from remainders
     accumulate(item,quantity,produced) {
-        // if we haven't already encountered this item, initialize it here.
-        if (!this.accumulator.hasOwnProperty(item)) {
-            this.accumulator[item] = {
-                name: item,
-                quantity: 0,
-                remainder: 0,
-                level: this.recipeDB.getRecipe(item).getLevel(),
-                machine: this.recipeDB.getRecipe(item).getMachine()
-            };
+
+        this.maybeInitItem(item);
+
+        if(item == "Analog Circuit")
+        {
+            console.log("digital!")
         }
+        
         if (quantity <= this.accumulator[item].remainder) {
             this.accumulator[item].remainder -= quantity;
             this.accumulator[item].quantity += quantity;
@@ -209,8 +210,64 @@ class Calculator {
         }
         this.accumulator[item].quantity += produced;
         
-
         return true;
+    }
+
+    maybeInitItem(item){
+        // if we haven't already encountered this item, initialize it here.
+        if (!this.accumulator.hasOwnProperty(item)) {
+            this.accumulator[item] = {
+                name: item,
+                quantity: 0,
+                remainder: 0,
+                level: this.recipeDB.getRecipe(item).getLevel(),
+                machine: this.recipeDB.getRecipe(item).getMachine()
+            };
+            return true;
+        }
+        return false;
+    }
+
+    addInventory(item,quantity){
+
+        item =  this.recipeDB.lookupRecipeName(item);
+
+        this.maybeInitItem(item);
+        if(quantity > 0){
+            this.accumulator[item].remainder += quantity;
+            return true;
+        }
+        return false;
+    }
+
+    clearInventory(){
+
+        let items = Object.keys(this.accumulator);
+
+        for(let i=0;i<items.length;i++) {
+            let item = items[i];
+            let accumItem = this.accumulator[item];
+            if(accumItem.quantity ==0){
+                delete this.accumulator[item];
+            } else {
+                this.accumulator[item].remainder = 0;
+            }
+        }
+    }
+    
+    reset() {
+        
+        let items = Object.keys(this.accumulator);
+
+        for(let i=0;i<items.length;i++) {
+            let item = items[i];
+            let accumItem = this.accumulator[item];
+            if(accumItem.remainder ==0){
+                delete this.accumulator[item];
+            } else {
+                this.accumulator[item].quantity =0;
+            }
+        }
     }
         
 }

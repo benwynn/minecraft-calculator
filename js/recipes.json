@@ -712,7 +712,7 @@
             "quantity": 4}]
     },
     {
-        "name": "Advanced Machine Hull",
+        "name": "Advanced Machine Casing",
         "quantity": 1,
         "mats": [{
             "name": "Aluminum Plate",
@@ -740,6 +740,19 @@
             "name": "Steel Plate",
             "quantity": 8},
             {"name": "Steel Gear",
+            "quantity": 1}]
+    },
+    {
+        "name": "Advanced Machine Hull",
+        "quantity": 1,
+        "mats": [{
+            "name": "Silicon Battery",
+            "quantity": 2},
+            {"name": "Electronic Circuit",
+            "quantity": 1},
+            {"name": "Electrum Cable",
+            "quantity": 3},
+            {"name": "Advanced Machine Casing",
             "quantity": 1}]
     }
 ]

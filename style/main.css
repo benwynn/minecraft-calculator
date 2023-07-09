@@ -34,6 +34,36 @@ footer {
   padding-left: 40px;
 }
 
+.container {
+  height: auto;
+  overflow: hidden;
+}
+
+.row {
+  content: "";
+  display: flex;
+  clear: both;
+}
+.container-left{
+  flex: 45%;
+  overflow: hidden;
+  padding: 10px;
+  border-width: 3px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #00000049;
+}
+
+.container-right{
+  flex: 45%;
+  float: right;
+  padding: 10px;
+  border-width: 3px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #00000049;
+}
+
 .cookie-notice {
     position: fixed;
     font-size: 15px;

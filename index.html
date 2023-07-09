@@ -15,24 +15,50 @@
     <a class="cookie-notice-dismiss-button">Got it</a>
   </div>
   
-  <div class="container">
-    <div class="heading">
-      <h1 class="title">Minecraft Calculator</h1>
-    </div>
-
-    <div class="input">
-      <input class="RecipeInput" name="ToCalculate"/>
-      <button class="GoButton" name="Go">Go</button>
-    </div>
-    <br/>
-    <div class="output">
-
-    </div>
-
-    <footer class="links">
-      <a href="./privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-    </footer>
+  <div class="heading">
+    <h1 class="title">Minecraft Calculator</h1>
   </div>
+
+  <div class="row">
+    <div class="container-left">
+
+      <div class="label">
+        <h2 class ="title">Calculate</h2>
+      </div>
+
+
+      <div class="input">
+        <input class="RecipeInput" name="ToCalculate"/>
+        <button class="GoButton" name="Go">Go</button>
+      </div>
+      <br/>
+      <div class="output">
+
+      </div>
+    </div>
+    
+    <div class="container-right">
+
+      <div class="label">
+        <h2 class ="title">Inventory</h2>
+      </div>
+
+      <div class = "UI">
+        <input class="InventoryInput" name="AddToRemainder"/>
+        <button class = "addInventory" name="Add">Add</button>
+        <button class = "clearInventory" name="Add">Clear</button>
+      </div>
+
+      <br/>
+      <div class="inventory">
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="links">
+    <a href="./privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  </footer>
 
   <script type="module" src="js/app.js"></script>
 </body>
