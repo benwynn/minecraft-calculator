@@ -22,10 +22,7 @@ class Calculator {
             return this.noResult(target);
         }
 
-        let items = Object.keys(this.accumulator);
-        items.sort();
-
-        let sortItems = items.map(x => { return {name: x, level: this.recipeDB.getRecipe(x).getLevel(), machine: this.recipeDB.getRecipe(x).getMachine()}}, this);
+        let sortItems = [...Object.values(this.accumulator)];
         sortItems.sort(function(a,b) {
             if(!a.machine && !b.machine) {return a.name.localeCompare(b.name)};
             if(!a.machine) {return -1}
@@ -327,7 +324,7 @@ class Calculator {
     reset() {
         
         let items = Object.keys(this.accumulator);
-
+        
         for(let i=0;i<items.length;i++) {
             let item = items[i];
             let accumItem = this.accumulator[item];
