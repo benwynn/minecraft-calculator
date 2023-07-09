@@ -700,7 +700,7 @@
     {
         "name": "Silicon Battery",
         "quantity": 1,
-        "plural": "Redstone Batteries",
+        "plural": "Silicon Batteries",
         "mats": [{
             "name": "Silicon Dust",
             "quantity": 2},
@@ -753,6 +753,15 @@
             {"name": "Electrum Cable",
             "quantity": 3},
             {"name": "Advanced Machine Casing",
+            "quantity": 1}]
+    },
+    {
+        "name": "Mv Energy Input Hatch",
+        "quantity": 1,
+        "mats": [{
+            "name": "Electrum Cable",
+            "quantity": 1},
+            {"name": "Advanced Machine Hull",
             "quantity": 1}]
     }
 ]

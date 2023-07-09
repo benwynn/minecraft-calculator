@@ -35,7 +35,6 @@ class Calculator {
         let remainderOutput = this.formatInventory();
 
         output.appendChild(ingredientOutput);
-        output.appendChild(remainderOutput);
 
         return output;
     }
