@@ -15,8 +15,13 @@ class Recipe {
         if (quantity) this.#quantity = quantity;
         // clone the subset so we don't alter the recipes book
         if (mats) this.#mats = mats;
-        if (machine) this.#machine = machine;
         if (plural) this.#plural = plural;
+        if (machine) { 
+            this.#machine = machine;
+        } else {
+            this.#machine = "Crafting Table";
+        }
+        
     }
 
     getName() {
