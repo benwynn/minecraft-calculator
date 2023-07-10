@@ -130,6 +130,14 @@
             "quantity": 1 }]
     },
     {
+        "name": "Iron Plate",
+        "quantity": 1,
+        "machine": "Compressor",
+        "mats": [{
+            "name": "Iron Ingot",
+            "quantity": 1 }]
+    },    
+    {
         "name": "Coal Dust",
         "machine": "Macerator",
         "quantity": 1,
@@ -321,6 +329,22 @@
         "quantity": 2,
         "mats": [{
             "name": "Tin Plate",
+            "quantity": 1}]
+    },
+    {
+        "name": "Iron Rod",
+        "machine": "Cutting Machine",
+        "quantity": 2,
+        "mats": [{
+            "name": "Iron Ingot",
+            "quantity": 1}]
+    },    
+    {
+        "name": "Iron Ring",
+        "machine": "Compressor",
+        "quantity": 2,
+        "mats": [{
+            "name": "Iron Rod",
             "quantity": 1}]
     },
     {
@@ -632,6 +656,16 @@
             "quantity": 1}]
     },
     {
+        "name": "Iron Gear",
+        "machine": "Assembler",
+        "quantity": 2,
+        "mats": [{
+            "name": "Iron Plate",
+            "quantity": 4},
+            {"name": "Iron Ring",
+            "quantity": 1}]
+    },
+    {
         "name": "Advanced Large Steam Boiler",
         "quantity": 1,
         "mats": [{
@@ -762,6 +796,47 @@
             "name": "Electrum Cable",
             "quantity": 1},
             {"name": "Advanced Machine Hull",
+            "quantity": 1}]
+    },
+    {
+        "name": "Steel Drill",
+        "quantity": 4,
+        "machine": "Assembler",
+        "mats": [{
+            "name": "Steel Drill Head",
+            "quantity": 1},
+            {"name": "Item Pipe",
+            "quantity": 3},
+            {"name": "Motor",
+            "quantity": 2},
+            {"name": "Tin Cable",
+            "quantity": 1},
+            {"name": "Analog Circuit",
+            "quantity": 1},
+            {"name": "Iron Gear",
+            "quantity": 2}]
+    },
+    {
+        "name": "Steel Drill Head",
+        "quantity": 1,
+        "machine": "Assembler",
+        "mats": [{
+            "name": "Steel Plate",
+            "quantity": 1},
+            {"name": "Curved Steel Plate",
+            "quantity": 2},
+            {"name": "Steel Gear",
+            "quantity": 2},
+            {"name": "Steel Rod",
+            "quantity": 1}]
+    },
+    {
+        "name": "Item Pipe",
+        "quantity": 16,
+        "mats": [{
+            "name": "Steel Gear",
+            "quantity": 2},
+            {"name": "Curved Bronze Plate",
             "quantity": 1}]
     }
 ]
