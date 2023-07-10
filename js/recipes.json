@@ -314,6 +314,14 @@
         "mats": [{
             "name": "Steel Ingot",
             "quantity": 1}]
+    },    
+    {
+        "name": "Curved Steel Plate",
+        "quantity": 1,
+        "machine": "Compressor",
+        "mats": [{
+            "name": "Steel Plate",
+            "quantity": 1 }]
     },
     {
         "name": "Tin Cable",
