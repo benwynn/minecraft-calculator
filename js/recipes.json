@@ -882,7 +882,7 @@
             "name": "Steel Gear",
             "quantity": 2},
             {"name": "Curved Bronze Plate",
-            "quantity": 1}]
+            "quantity": 6}]
     },
     {
         "name": "Electrolyzer",
@@ -930,5 +930,23 @@
             "quantity": 1},
             {"name": "Large Steel Plate",
             "quantity": 4}]
+    },
+    {
+        "name": "Distillery",
+        "quantity": 1,
+        "mats": [{
+            "name": "Large Pump",
+            "quantity": 2},
+            {"name": "Fluid Pipe",
+            "quantity": 1},
+            {"name": "Basic Machine Hull",
+            "quantity": 1},
+            {"name": "Glass",
+            "quantity": 2},
+            {"name": "Electronic Circuit",
+            "quantity": 2},
+            {"name": "Electrum Cable",
+            "quantity": 1}]
     }
+
 ]
