@@ -24,12 +24,15 @@ class Calculator {
 
         let sortItems = [...Object.values(this.accumulator)];
         sortItems.sort(function(a,b) {
-            if(!a.machine && !b.machine) {return a.name.localeCompare(b.name)};
-            if(!a.machine) {return -1}
-            if(!b.machine) {return 0};
-            return a.machine.localeCompare(b.machine);
+            // Sort by level, then machine, then alphabetically by name.
+            if (a.level != b.level) return a.level - b.level;
+            if (a.machine != b.machine) { 
+                if (a.machine == "Crafting Table") return -1;
+                if (b.machine == "Crafting Table") return 1;
+                return a.machine.localeCompare(b.machine);
+            }
+            return a.name.localeCompare(b.name);
         });
-        sortItems.sort(function(a,b) {return a.level - b.level});
         
         let ingredientOutput = this.formatIngredients(target,quantity,sortItems);
         let remainderOutput = this.formatInventory();
@@ -323,7 +326,7 @@ class Calculator {
     reset() {
         
         let items = Object.keys(this.accumulator);
-        
+
         for(let i=0;i<items.length;i++) {
             let item = items[i];
             let accumItem = this.accumulator[item];
