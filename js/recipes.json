@@ -77,6 +77,11 @@
         "mats": []
     },
     {
+        "name": "Cupronickel Ingot",
+        "quantity": 1,
+        "mats": []
+    },
+    {
         "name": "Paper",
         "quantity": 1,
         "mats": []
@@ -316,6 +321,14 @@
             "quantity": 1}]
     },    
     {
+        "name": "Large Steel Plate",
+        "machine": "Compressor",
+        "quantity": 1,
+        "mats": [{
+            "name": "Steel Plate",
+            "quantity": 4}]
+    }, 
+    {
         "name": "Curved Steel Plate",
         "quantity": 1,
         "machine": "Compressor",
@@ -377,6 +390,30 @@
         "quantity": 1,
         "mats": [{
             "name": "Steel Rod",
+            "quantity": 1}]
+    },
+    {
+        "name": "Cupronickel Plate",
+        "machine": "Compressor",
+        "quantity": 1,
+        "mats": [{
+            "name": "Cupronickel Ingot",
+            "quantity": 1}]
+    },
+    {
+        "name": "Cupronickel Wire",
+        "machine": "Wiremill",
+        "quantity": 2,
+        "mats": [{
+            "name": "Cupronickel Plate",
+            "quantity": 1}]
+    },
+    {
+        "name": "Magnitized Cupronickel Wire",
+        "machine": "Polarizer",
+        "quantity": 1,
+        "mats": [{
+            "name": "Cupronickel Wire",
             "quantity": 1}]
     },
     {
@@ -484,7 +521,7 @@
     },
     {
         "name": "Diode",
-        "quantity": 4,
+        "quantity": 2,
         "mats": [{
             "name": "Fine Electrum Wire",
             "quantity": 3},
@@ -846,5 +883,52 @@
             "quantity": 2},
             {"name": "Curved Bronze Plate",
             "quantity": 1}]
+    },
+    {
+        "name": "Electrolyzer",
+        "quantity": 1,
+        "mats": [{
+            "name": "Magnitized Cupronickel Wire",
+            "quantity": 4},
+            {"name": "Aluminum Rod",
+            "quantity": 2},
+            {"name": "Basic Machine Hull",
+            "quantity": 1},
+            {"name": "Electronic Circuit",
+            "quantity": 1},
+            {"name": "Large Pump",
+            "quantity": 1}]
+    },
+    {
+        "name": "Chemical Reactor",
+        "quantity": 1,
+        "mats": [{
+            "name": "Glass",
+            "quantity": 2},
+            {"name": "Aluminum rotor",
+            "quantity": 2},
+            {"name": "Basic Machine Hull",
+            "quantity": 1},
+            {"name": "Electronic Circuit",
+            "quantity": 2},
+            {"name": "Large Pump",
+            "quantity": 1},
+            {"name": "Electrum Cable",
+            "quantity": 1}]
+    },
+    {
+        "name": "Oil Drilling Rig",
+        "quantity": 1,
+        "mats": [{
+            "name": "Large Pump",
+            "quantity": 2},
+            {"name": "Fluid Pipe",
+            "quantity": 1},
+            {"name": "Advanced Machine Hull",
+            "quantity": 1},
+            {"name": "Electronic Circuit",
+            "quantity": 1},
+            {"name": "Large Steel Plate",
+            "quantity": 4}]
     }
 ]
