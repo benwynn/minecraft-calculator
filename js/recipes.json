@@ -988,6 +988,16 @@
             {"name": "Motor", "quantity": 2},
             {"name": "Tin Cable", "quantity": 1}
         ]
+    },
+    {
+        "name": "Polarizer",
+        "quantity": 1,
+        "mats": [
+            {"name": "Basic Machine Hull", "quantity": 1},
+            {"name": "Steel Rod", "quantity": 2},
+            {"name": "Tin Cable", "quantity": 2},
+            {"name": "Tin Wire", "quantity": 4}
+        ]
     }
 
 ]
