@@ -947,6 +947,16 @@
             "quantity": 2},
             {"name": "Electrum Cable",
             "quantity": 1}]
+    },
+    {
+        "name": "Assembler",
+        "quantity": 1,
+        "mats": [
+            {"name": "Basic Machine Hull", "quantity": 1},
+            {"name": "Robot Arm", "quantity": 4},
+            {"name": "Conveyor", "quantity": 2},
+            {"name": "Analog Circuit", "quantity": 2}
+        ]
     }
 
 ]
