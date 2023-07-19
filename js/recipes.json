@@ -998,6 +998,18 @@
             {"name": "Tin Cable", "quantity": 2},
             {"name": "Tin Wire", "quantity": 4}
         ]
+    },
+    {
+        "name": "Lv Steam Turbine",
+        "quantity": 1,
+        "mats": [
+            {"name": "Motor", "quantity": 2},
+            {"name": "Tin Rotor", "quantity": 2},
+            {"name": "Fluid Pipe", "quantity": 2},
+            {"name": "Tin Cable", "quantity": 1},
+            {"name": "Basic Machine Hull", "quantity": 1},
+            {"name": "Analog Circuit", "quantity": 1}
+        ]
     }
 
 ]
