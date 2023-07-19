@@ -979,6 +979,15 @@
             {"name": "Steel Gear", "quantity": 1},
             {"name": "Motor", "quantity": 1}
         ]
+    },
+    {
+        "name": "Conveyor",
+        "quantity": 1,
+        "mats": [
+            {"name": "Rubber Sheet", "quantity": 6},
+            {"name": "Motor", "quantity": 2},
+            {"name": "Tin Cable", "quantity": 1}
+        ]
     }
 
 ]
