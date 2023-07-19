@@ -957,6 +957,17 @@
             {"name": "Conveyor", "quantity": 2},
             {"name": "Analog Circuit", "quantity": 2}
         ]
+    },
+    {
+        "name": "Robot Arm",
+        "quantity": 1,
+        "mats": [
+            {"name": "Tin Cable", "quantity": 3},
+            {"name": "Steel Rod", "quantity": 2},
+            {"name": "Motor", "quantity": 2},
+            {"name": "Analog Circuit", "quantity": 1},
+            {"name": "Piston", "quantity": 1}
+        ]
     }
 
 ]
