@@ -968,6 +968,17 @@
             {"name": "Analog Circuit", "quantity": 1},
             {"name": "Piston", "quantity": 1}
         ]
+    },
+    {
+        "name": "Piston",
+        "quantity": 1,
+        "mats": [
+            {"name": "Steel Plate", "quantity": 3},
+            {"name": "Steel Rod", "quantity": 2},
+            {"name": "Tin Cable", "quantity": 2},
+            {"name": "Steel Gear", "quantity": 1},
+            {"name": "Motor", "quantity": 1}
+        ]
     }
 
 ]
