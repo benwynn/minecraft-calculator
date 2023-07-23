@@ -116,7 +116,7 @@
         "name": "Furnace",
         "quantity": 1,
         "mats": [
-            {"name": "Cobblestone", "quantity": 1}
+            {"name": "Cobblestone", "quantity": 8}
         ]
     },
     {
