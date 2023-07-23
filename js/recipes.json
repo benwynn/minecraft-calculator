@@ -15,6 +15,11 @@
         "mats": []
     },
     {
+        "name": "Diamond",
+        "quantity": 1,
+        "mats": []
+    },
+    {
         "name": "Antimony Tiny Dust",
         "quantity": 1,
         "mats": []
@@ -101,6 +106,36 @@
         "name": "Silicon Dust",
         "quantity": 1,
         "mats": []
+    },
+    {
+        "name": "Iron Dust",
+        "quantity": 1,
+        "machine": "Macerator",
+        "mats": [
+            {"name": "Iron Ingot", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Nickel Dust",
+        "quantity": 1,
+        "mats": [ ]
+    },
+    {
+        "name": "Invar Ingot",
+        "quantity": 1,
+        "machine": "Furnace",
+        "mats": [
+            {"name": "Invar Dust", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Invar Dust",
+        "quantity": 3,
+        "machine": "Mixer",
+        "mats": [
+            {"name": "Iron Dust", "quantity": 2},
+            {"name": "Nickel Dust", "quantity": 1}
+        ]
     },
     {
         "name": "Bronze Plate",
@@ -1009,6 +1044,69 @@
             {"name": "Tin Cable", "quantity": 1},
             {"name": "Basic Machine Hull", "quantity": 1},
             {"name": "Analog Circuit", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Extractinator",
+        "quantity": 1,
+        "mats": [
+            {"name": "Invar Rotary Blade", "quantity": 2},
+            {"name": "Piston", "quantity": 1},
+            {"name": "Steel Gear", "quantity": 1},
+            {"name": "Basic Machine Hull", "quantity": 1},
+            {"name": "Conveyor", "quantity": 1},
+            {"name": "Motor", "quantity": 1},
+            {"name": "Electronic Circuit", "quantity": 1},
+            {"name": "Glass Pane", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Invar Rotary Blade",
+        "quantity": 1,
+        "mats": [
+            {"name": "Diamond Dust", "quantity": 4},
+            {"name": "Invar Gear", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Diamond Dust",
+        "quantity": 1,
+        "machine": "Macerator",
+        "mats": [
+            {"name": "Diamond", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Invar Gear",
+        "quantity": 1,
+        "machine": "Assembler",
+        "mats": [
+            {"name": "Invar Plate", "quantity": 4},
+            {"name": "Invar Ring", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Invar Plate",
+        "quantity": 1,
+        "machine": "Compressor",
+        "mats": [
+            {"name": "Invar Ingot", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Invar Ring",
+        "quantity": 1,
+        "machine": "Compressor",
+        "mats": [
+            {"name": "Invar Rod", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Invar Rod",
+        "quantity": 2,
+        "machine": "Cutting Machine",
+        "mats": [
+            {"name": "Invar Ingot", "quantity": 1}
         ]
     }
 
