@@ -1,5 +1,10 @@
 [
     {
+        "name": "Cobblestone",
+        "quantity": 1,
+        "mats": []
+    },
+    {
         "name": "Iron Ingot",
         "quantity": 1,
         "mats": []
@@ -106,6 +111,21 @@
         "name": "Silicon Dust",
         "quantity": 1,
         "mats": []
+    },
+    {
+        "name": "Furnace",
+        "quantity": 1,
+        "mats": [
+            {"name": "Cobblestone", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Stone",
+        "quantity": 1,
+        "machine": "Furnace",
+        "mats": [
+            {"name": "Cobblestone", "quantity": 1}
+        ]
     },
     {
         "name": "Iron Dust",
@@ -444,7 +464,7 @@
             "quantity": 1}]
     },
     {
-        "name": "Magnitized Cupronickel Wire",
+        "name": "Magnetic Cupronickel Wire",
         "machine": "Polarizer",
         "quantity": 1,
         "mats": [{
@@ -923,7 +943,7 @@
         "name": "Electrolyzer",
         "quantity": 1,
         "mats": [{
-            "name": "Magnitized Cupronickel Wire",
+            "name": "Magnetic Cupronickel Wire",
             "quantity": 4},
             {"name": "Aluminum Rod",
             "quantity": 2},
@@ -1107,6 +1127,24 @@
         "machine": "Cutting Machine",
         "mats": [
             {"name": "Invar Ingot", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Electric Blast Furnace",
+        "quantity": 1,
+        "mats": [
+            {"name": "Magnetic Cupronickel Wire", "quantity": 7},
+            {"name": "Basic Machine Hull", "quantity": 1},
+            {"name": "Blast Furnace", "quantity": 1}
+        ]
+    },
+    {
+        "name": "Blast Furnace",
+        "quantity": 1,
+        "mats": [
+            {"name": "Iron Ingot", "quantity": 5},
+            {"name": "Furnace", "quantity": 1},
+            {"name": "Stone", "quantity": 3}
         ]
     }
 
