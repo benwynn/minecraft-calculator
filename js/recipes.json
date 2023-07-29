@@ -469,6 +469,21 @@
             "quantity": 1}]
     },
     {
+        "name": "Cupronickel Coil",
+        "quantity": 1,
+        "mats": [
+            {"name": "Cupronickel Cable", "quantity": 8}
+        ]
+    },
+    {
+        "name": "Cupronickel Cable",
+        "quantity": 3,
+        "mats": [
+            {"name": "Rubber Sheet", "quantity": 6},
+            {"name": "Cupronickel Wire", "quantity": 3}
+        ]
+    },
+    {
         "name": "Tin Blade",
         "quantity": 4,
         "mats": [{
