@@ -1174,6 +1174,17 @@
         "mats": [
             {"name": "Stone", "quantity": 1}
         ]
+    },
+    {
+        "name": "Centrifuge",
+        "quantity": 1,
+        "mats": [
+            {"name": "Large Motor", "quantity": 4},
+            {"name": "Large Pump", "quantity": 4},
+            {"name": "Electrum Cable", "quantity": 2},
+            {"name": "Basic Machine Hull", "quantity": 1},
+            {"name": "Electronic Circuit", "quantity": 1}
+        ]
     }
 
 ]
