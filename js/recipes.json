@@ -130,10 +130,7 @@
     {
         "name": "Iron Dust",
         "quantity": 1,
-        "machine": "Macerator",
-        "mats": [
-            {"name": "Iron Ingot", "quantity": 1}
-        ]
+        "mats": [ ]
     },
     {
         "name": "Nickel Dust",
