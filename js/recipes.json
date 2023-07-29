@@ -1118,7 +1118,7 @@
     },
     {
         "name": "Invar Gear",
-        "quantity": 1,
+        "quantity": 2,
         "machine": "Assembler",
         "mats": [
             {"name": "Invar Plate", "quantity": 4},
